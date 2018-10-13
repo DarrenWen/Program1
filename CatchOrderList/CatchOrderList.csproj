@@ -1,0 +1,649 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EA986ED-46EF-42C8-A5B7-B8A7A7DA054C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CatchOrderList</RootNamespace>
+    <AssemblyName>CatchOrderList</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>F:\软件设计\项目案例\Winform数据采集系统\CatchOrderList\Setup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>132.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=18.3.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
+      <HintPath>..\packages\Aspose.Cells.18.3.0\lib\net40\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="COM.Excel, Version=1.1.1606.17082, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>LIB\COM.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel, Version=1.5.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>LIB\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.5.5.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.5.5\lib\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.Common, Version=1.4.1.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>LIB\IBatisNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataMapper, Version=1.5.1.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>LIB\IBatisNet.DataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>bin\Debug\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.62.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>LIB\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="TonyPagerForWinForm">
+      <HintPath>LIB\TonyPagerForWinForm.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BigOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BigOrderForm.Designer.cs">
+      <DependentUpon>BigOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckVersionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckVersionForm.Designer.cs">
+      <DependentUpon>CheckVersionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataFormatForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataFormatForm.Designer.cs">
+      <DependentUpon>DataFormatForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="data\CRockey2.cs" />
+    <Compile Include="data\ExcelHelper.cs" />
+    <Compile Include="data\ExportManager.cs" />
+    <Compile Include="data\HttpHelper.cs" />
+    <Compile Include="data\PageDataProcess.cs" />
+    <Compile Include="data\ProcessStr\BigBagProcess.cs" />
+    <Compile Include="data\TextHelper.cs" />
+    <Compile Include="data\UserValidation.cs" />
+    <Compile Include="DeleteOrderByDateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteOrderByDateForm.Designer.cs">
+      <DependentUpon>DeleteOrderByDateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDataTrans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDataTrans.Designer.cs">
+      <DependentUpon>FormDataTrans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IntercedeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IntercedeForm.Designer.cs">
+      <DependentUpon>IntercedeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFormFC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormFC.Designer.cs">
+      <DependentUpon>MainFormFC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainFormJB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormJB.Designer.cs">
+      <DependentUpon>MainFormJB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MsgForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MsgForm.Designer.cs">
+      <DependentUpon>MsgForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderScanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderScanForm.Designer.cs">
+      <DependentUpon>OrderScanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PassRetry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PassRetry.Designer.cs">
+      <DependentUpon>PassRetry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuickWeightSearchOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuickWeightSearchOrder.Designer.cs">
+      <DependentUpon>QuickWeightSearchOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuickSearchOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuickSearchOrder.Designer.cs">
+      <DependentUpon>QuickSearchOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RemarkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemarkForm.Designer.cs">
+      <DependentUpon>RemarkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportSelectForm.Designer.cs">
+      <DependentUpon>ReportSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VersionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VersionForm.designer.cs">
+      <DependentUpon>VersionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrderForm.Designer.cs">
+      <DependentUpon>AddOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUserForm.Designer.cs">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CusEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CusEditForm.Designer.cs">
+      <DependentUpon>CusEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CusManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CusManagerForm.Designer.cs">
+      <DependentUpon>CusManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CusSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CusSelectForm.Designer.cs">
+      <DependentUpon>CusSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="data\ClientInfo.cs" />
+    <Compile Include="data\DataProcess.cs" />
+    <Compile Include="data\ExportData.cs" />
+    <Compile Include="data\Provider.cs" />
+    <Compile Include="data\Strategy.cs" />
+    <Compile Include="ImportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportForm.Designer.cs">
+      <DependentUpon>ImportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderManagerForm.Designer.cs">
+      <DependentUpon>OrderManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderPageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderPageForm.Designer.cs">
+      <DependentUpon>OrderPageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SysSetForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SysSetForm.Designer.cs">
+      <DependentUpon>SysSetForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="uc_CatchInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="uc_CatchInfo.Designer.cs">
+      <DependentUpon>uc_CatchInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManagerForm.Designer.cs">
+      <DependentUpon>UserManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DateSelectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DateSelectForm.Designer.cs">
+      <DependentUpon>DateSelectForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSendOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSendOrderForm.Designer.cs">
+      <DependentUpon>AddSendOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportForm.Designer.cs">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewSendOrderManagerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewSendOrderManagerForm.Designer.cs">
+      <DependentUpon>NewSendOrderManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VipImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VipImport.Designer.cs">
+      <DependentUpon>VipImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIPOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIPOrderForm.Designer.cs">
+      <DependentUpon>VIPOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VIPQRScan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VIPQRScan.Designer.cs">
+      <DependentUpon>VIPQRScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VipUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VipUser.Designer.cs">
+      <DependentUpon>VipUser.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BigOrderForm.resx">
+      <DependentUpon>BigOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckVersionForm.resx">
+      <DependentUpon>CheckVersionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataFormatForm.resx">
+      <DependentUpon>DataFormatForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteOrderByDateForm.resx">
+      <DependentUpon>DeleteOrderByDateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDataTrans.resx">
+      <DependentUpon>FormDataTrans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IntercedeForm.resx">
+      <DependentUpon>IntercedeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormFC.resx">
+      <DependentUpon>MainFormFC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormJB.resx">
+      <DependentUpon>MainFormJB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MsgForm.resx">
+      <DependentUpon>MsgForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderScanForm.resx">
+      <DependentUpon>OrderScanForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PassRetry.resx">
+      <DependentUpon>PassRetry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuickWeightSearchOrder.resx">
+      <DependentUpon>QuickWeightSearchOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuickSearchOrder.resx">
+      <DependentUpon>QuickSearchOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemarkForm.resx">
+      <DependentUpon>RemarkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSelectForm.resx">
+      <DependentUpon>ReportSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VersionForm.resx">
+      <DependentUpon>VersionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddOrderForm.resx">
+      <DependentUpon>AddOrderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddUserForm.resx">
+      <DependentUpon>AddUserForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CusEditForm.resx">
+      <DependentUpon>CusEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CusManagerForm.resx">
+      <DependentUpon>CusManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CusSelectForm.resx">
+      <DependentUpon>CusSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImportForm.resx">
+      <DependentUpon>ImportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderManagerForm.resx">
+      <DependentUpon>OrderManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderPageForm.resx">
+      <DependentUpon>OrderPageForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SysSetForm.resx">
+      <DependentUpon>SysSetForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="uc_CatchInfo.resx">
+      <DependentUpon>uc_CatchInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManagerForm.resx">
+      <DependentUpon>UserManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DateSelectForm.resx">
+      <DependentUpon>DateSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSendOrderForm.resx">
+      <DependentUpon>AddSendOrderForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportForm.resx">
+      <DependentUpon>ExportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewSendOrderManagerForm.resx">
+      <DependentUpon>NewSendOrderManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VipImport.resx">
+      <DependentUpon>VipImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIPOrderForm.resx">
+      <DependentUpon>VIPOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VIPQRScan.resx">
+      <DependentUpon>VIPQRScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VipUser.resx">
+      <DependentUpon>VipUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="132.ico" />
+    <None Include="Resources\ooopic_1504752146.ico" />
+    <None Include="Resources\bg.png" />
+    <None Include="Resources\bg.jpg" />
+    <None Include="Resources\wrong.gif" />
+    <None Include="Resources\writetext.gif" />
+    <None Include="Resources\warning.gif" />
+    <None Include="Resources\vup.gif" />
+    <None Include="Resources\viewtext.gif" />
+    <None Include="Resources\viewacc.gif" />
+    <None Include="Resources\vdown.gif" />
+    <None Include="Resources\user6.gif" />
+    <None Include="Resources\user5.gif" />
+    <None Include="Resources\user4.gif" />
+    <None Include="Resources\user2.gif" />
+    <None Include="Resources\user_yellow.jpg" />
+    <None Include="Resources\user_green2.jpg" />
+    <None Include="Resources\user.gif" />
+    <None Include="Resources\undo.gif" />
+    <None Include="Resources\tree.gif" />
+    <None Include="Resources\toreceive.gif" />
+    <None Include="Resources\textmanager.gif" />
+    <None Include="Resources\taskreport.gif" />
+    <None Include="Resources\taskchild.gif" />
+    <None Include="Resources\stat2.gif" />
+    <None Include="Resources\stat1.gif" />
+    <None Include="Resources\square_yellowS.gif" />
+    <None Include="Resources\square_redS.gif" />
+    <None Include="Resources\square_greenS.gif" />
+    <None Include="Resources\square_blueS.gif" />
+    <None Include="Resources\sq.gif" />
+    <None Include="Resources\sort_up.gif" />
+    <None Include="Resources\sort_down.gif" />
+    <None Include="Resources\Show.gif" />
+    <None Include="Resources\share.gif" />
+    <None Include="Resources\setMore.gif" />
+    <None Include="Resources\selfsend.gif" />
+    <None Include="Resources\savefile.gif" />
+    <None Include="Resources\rwhb.gif" />
+    <None Include="Resources\role.gif" />
+    <None Include="Resources\refresh.gif" />
+    <None Include="Resources\readtext.gif" />
+    <None Include="Resources\readme.gif" />
+    <None Include="Resources\quit.gif" />
+    <None Include="Resources\qry.gif" />
+    <None Include="Resources\print2.gif" />
+    <None Include="Resources\print1.gif" />
+    <None Include="Resources\print.gif" />
+    <None Include="Resources\photo.jpg" />
+    <None Include="Resources\pf.gif" />
+    <None Include="Resources\person.gif" />
+    <None Include="Resources\ok3.gif" />
+    <None Include="Resources\ok2.gif" />
+    <None Include="Resources\ok.gif" />
+    <None Include="Resources\notice.gif" />
+    <None Include="Resources\noimage.jpg" />
+    <None Include="Resources\more.gif" />
+    <None Include="Resources\manageracc.gif" />
+    <None Include="Resources\MailSendClose.gif" />
+    <None Include="Resources\lc.gif" />
+    <None Include="Resources\ico_service_faq.gif" />
+    <None Include="Resources\home.gif" />
+    <None Include="Resources\hint.gif" />
+    <None Include="Resources\help.gif" />
+    <None Include="Resources\group-by.gif" />
+    <None Include="Resources\green_user.jpg" />
+    <None Include="Resources\folderopen.gif" />
+    <None Include="Resources\folder.gif" />
+    <None Include="Resources\fold.gif" />
+    <None Include="Resources\feedback.gif" />
+    <None Include="Resources\exclamation.gif" />
+    <None Include="Resources\excel.gif" />
+    <None Include="Resources\error.gif" />
+    <None Include="Resources\editdoc.gif" />
+    <None Include="Resources\edit3.gif" />
+    <None Include="Resources\edit2.gif" />
+    <None Include="Resources\drop-yes.gif" />
+    <None Include="Resources\drop-no.gif" />
+    <None Include="Resources\drop-add.gif" />
+    <None Include="Resources\download.gif" />
+    <None Include="Resources\documentSend.gif" />
+    <None Include="Resources\doc2.gif" />
+    <None Include="Resources\doc.gif" />
+    <None Include="Resources\dic.gif" />
+    <None Include="Resources\detail.gif" />
+    <None Include="Resources\design.gif" />
+    <None Include="Resources\deng10.gif" />
+    <None Include="Resources\deng08.gif" />
+    <None Include="Resources\deng06.gif" />
+    <None Include="Resources\del3.gif" />
+    <None Include="Resources\del2.gif" />
+    <None Include="Resources\del.gif" />
+    <None Include="Resources\Default.gif" />
+    <None Include="Resources\deal.gif" />
+    <None Include="Resources\comment.gif" />
+    <None Include="Resources\columns.gif" />
+    <None Include="Resources\chinaz01.png" />
+    <None Include="Resources\changePwd.gif" />
+    <None Include="Resources\bq_green.jpg" />
+    <None Include="Resources\Bookmark.gif" />
+    <None Include="Resources\chinaz0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{38d7aa58-c95b-449b-86c6-a8073a56e11f}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{e3d8759a-c5eb-402d-9f10-f5c6029a8d1a}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DBUtility\DBUtility.csproj">
+      <Project>{0988c62e-247f-471f-a183-db509c7a3839}</Project>
+      <Name>DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{53995DBB-9836-4647-AD22-865884FDEB9E}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

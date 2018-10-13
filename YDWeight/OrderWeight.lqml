@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database Name="main" EntityNamespace="MainContext" ContextNamespace="MainContext" Class="MainDataContext" xmlns:ed="http://devart.com/schemas/EntityDeveloper/1.0" ed:Guid="0267f371-784d-4a44-868c-e7aef3f513d2" Provider="Devart.Data.SQLite.Linq.Provider.SQLiteDataProvider, Devart.Data.SQLite.Linq" Extended="true" xmlns="http://schemas.devart.com/linqconnect/mapping">
+  <Connection Mode="ConnectionString" ConnectionString="Data Source=H:\CatchOrderList\YDWeight\bin\Debug\data.db" Provider="Devart.Data.SQLite" />
+  <Table Name="&quot;main&quot;.OrderWeight" Member="OrderWeights">
+    <Type Name="OrderWeight" ed:Guid="1ca4bae7-09d8-4093-b25d-d29906b26bd5">
+      <Column Name="Id" Type="System.Int64" AutoSync="OnInsert" DbType="INTEGER NOT NULL" IsReadOnly="true" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" UpdateCheck="Always" ed:ValidateRequired="true" ed:Guid="bb28ea8e-e836-4801-8892-b947ee105e24" />
+      <Column Name="OrderId" Type="System.String" DbType="TEXT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="63333525-421e-4128-a41d-82f2c39a8083" />
+      <Column Name="Weight" Type="System.Double" DbType="REAL" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="e347cb2e-1958-4f5f-88dd-56dfa1a25b2f" />
+      <Column Name="ScanTime" Type="System.String" DbType="TEXT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="1be90d16-0217-44ed-8566-4e9e5051b752" />
+      <Column Name="EmNo" Type="System.String" DbType="TEXT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="44135fab-f335-41bc-80ef-53e5d8cad1b7" />
+      <Column Name="EmName" Type="System.String" DbType="TEXT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="56b936ed-82e7-44d8-aa82-e5631c2a42e8" />
+      <Column Name="Count" Type="System.Int64" DbType="INTEGER" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="150877f5-0e45-45b0-bcf9-f6fd76bf6fa0" />
+      <Column Name="CreateBy" Type="System.Int64" DbType="INTEGER" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="915e3513-d1c8-419b-a94d-9df23578d9e8" />
+      <Column Name="CreateOn" Type="System.String" DbType="TEXT" CanBeNull="true" UpdateCheck="Never" ed:ValidateRequired="false" ed:Guid="4bf2a032-5b39-4d60-918c-1b46c5f1180c" />
+    </Type>
+  </Table>
+</Database>
