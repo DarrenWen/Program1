@@ -109,7 +109,12 @@ namespace CatchOrderList.data
             {
                 HtmlProcess(order, ref orderInfo, ref userInfo, ref replyInfo, ref barCodeInfo);
                 orderInfo = B64Decode(orderInfo);
+               
                 weight = GetWeight(orderInfo);
+                if (order.Substring(0, 1).Trim() != "9" && weight>2)//小包不能大于2公斤
+                {
+                    weight = 0;
+                }
             }
             catch (Exception ex)
             {
@@ -133,41 +138,66 @@ namespace CatchOrderList.data
             string[] array = orderInfo.Split(';');
             Array.Sort(array);
 
-            foreach (var item in array)
+            foreach (var item in array)//小包
             {
                 if (!string.IsNullOrEmpty(item) && item.Length > 10)
                 {
                     string[] darray = item.Split(',');
                     if (darray[2] == "揽件扫描")
                     {
-                        if (darray[3].Contains("集包分部") && darray[3].Contains("518123") && string.IsNullOrEmpty(darray[4].Trim()) && !string.IsNullOrEmpty(darray[7].Trim()))
+                        if (darray[3].Contains("集包分部") && darray[3].Contains("518123") && darray[4].Trim().Length<=2 && !string.IsNullOrEmpty(darray[7].Trim()))
                         {
                             weight = double.Parse(darray[7].Trim());
-
-                            break;
-                        }
-                        else if (darray[3].Contains("518000") && darray[3].Contains("518123") && !string.IsNullOrEmpty(darray[7].Trim()))
-                        {
-                            weight = double.Parse(darray[7].Trim());
-
-                            break;
-                        }
-                        else
-                        {
-                            if (!string.IsNullOrEmpty(darray[7].Trim()))
-                            {
-
-                                weight = double.Parse(darray[7].Trim());
-                                if (weight>2)
-                                {
-                                    continue;
-                                }
+                            if (weight < 2)
                                 break;
-                            }
+                            else
+                                weight = 0;
                         }
                     }
                 }
             }
+
+            if (weight>0)
+            {
+                return weight;
+            }
+
+            foreach (var item in array) //小包
+            {
+                if (!string.IsNullOrEmpty(item) && item.Length > 10)
+                {
+                    string[] darray = item.Split(',');
+                    if (darray[3].Contains("518000") && darray[3].Contains("518123") && !string.IsNullOrEmpty(darray[7].Trim()))
+                    {
+                        weight = double.Parse(darray[7].Trim());
+                        if (weight < 2)
+                            break;
+                        else
+                            weight = 0;
+                    }
+                }
+            }
+
+            if (weight > 0)
+            {
+                return weight;
+            }
+
+            foreach (var item in array)
+            {
+                if (!string.IsNullOrEmpty(item) && item.Length > 10)
+                {
+                    string[] darray = item.Split(',');
+                    if (!string.IsNullOrEmpty(darray[7].Trim()))
+                    {
+
+                        weight = double.Parse(darray[7].Trim());
+
+                        break;
+                    }
+                }
+            }
+
             if (array.Length > 2 && weight <= 0)
             {
                 weight = 0;//如果有记录但没数据，默认未需要人工介入修改的
@@ -239,7 +269,12 @@ namespace CatchOrderList.data
                 nowOrder.Paream1 = GetCompCode(orderInfo);//作为揽件扫描编码
                 nowOrder.Paream3 = replyInfo;//保存留言信息
                 nowOrder.Paream6 = GetReturnState(orderInfo);
-                nowOrder.Paream7 = (int)(GetWeight(orderInfo)*100);
+                var weight = GetWeight(orderInfo);
+                if (order.Substring(0, 1).Trim() != "9" && weight > 2)//小包不能大于2公斤
+                {
+                    weight = 0;
+                }
+                nowOrder.Paream7 = (int)(weight*100);
 
                 nowOrder.Paream4 = GetPickPerson(orderInfo);//获取揽件员信息
 

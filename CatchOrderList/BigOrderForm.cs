@@ -254,6 +254,10 @@ namespace CatchOrderList
                 ChildOrderModel m = new ChildOrderModel();
                 m.PID = item.Cells[3].Value.ToString();
                 m.weight = double.Parse(item.Cells[7].Value.ToString().Trim());
+                if (item.Cells[8].Value.ToString() == "需要人工处理")
+                {
+                    m.OrderNo = item.Cells[2].Value.ToString();//收集异常单号
+                }
                 infos.Add(m);
             }
 
@@ -262,14 +266,143 @@ namespace CatchOrderList
                 if (item.Cells[2].Value == null)
                     continue;
                 string pid = item.Cells[2].Value.ToString().Trim();
-                item.Cells[3].Value = infos.Where(u => u.PID == pid).Sum(u=>u.weight);
+                item.Cells[3].Value = infos.Where(u => u.PID == pid).Sum(u => u.weight);
+                var orders = infos.Where(u => u.PID == pid && !string.IsNullOrEmpty(u.OrderNo)).Select(u => u.OrderNo).ToArray();
+                if (null != orders && orders.Length > 0)
+                    item.Cells[7].Value = string.Join(",", orders);
             }
 
+            GetJbWeight();
 
             MessageBox.Show("处理完成,请导出数据!!!");
         }
 
+        /// <summary>
+        /// 更新集包重量
+        /// </summary>
+        private void GetJbWeight()
+        {
+            if (JBDoneProcessWeightCount != JBReadyProcessWeightCount)
+            {
+                return;
+            }
+            PageDataProcess process = new PageDataProcess();
+            process.setSigleData = SetJBData;
 
+            ResetJBWeightParam();
+            foreach (DataGridViewRow item in gvInfo.Rows)
+            {
+                if (item.Cells[2].Value != null&& item.Cells[4].Value == null)
+                {
+                    JBReadyProcessWeightCount++;
+                    progressBar2.Maximum++;
+                    ThreadPool.QueueUserWorkItem(state => process.ProcessOrderWeight(item.Cells[2].Value.ToString() + "," + item.Cells[1].Value.ToString()));
+                }
+            }
+        }
+
+
+        private void SetJBData(string data)
+        {
+            if (!this.InvokeRequired)
+            {
+                try
+                {
+                    JBDoneProcessWeightCount++;
+                    progressBar2.Value = JBDoneProcessWeightCount;
+                    double weight = double.Parse(data.Split(',')[1]);
+                    int myrow = int.Parse(data.Split(',')[0]) - 1;
+                    
+                    if (weight > 0)
+                    {
+                        JBSucessProcessWeightCount++;
+                        gvInfo.Rows[myrow].Cells[4].Value = weight;
+                    }
+
+                    
+                    if (JBReadyProcessWeightCount == JBDoneProcessWeightCount && JBSucessProcessWeightCount != JBReadyProcessWeightCount)
+                    {
+                        JBRepeatCount--;
+                        if (JBRepeatCount < 0)
+                        {
+                            MessageBox.Show("查询时间过长，系统已经自动取消，请再次点击纠错进行查询!", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            ResetWeightParam();
+                        }
+                        else
+                        {
+                            GetJbWeight();
+                        }
+                    }
+                    ///统计完成，更新记录
+                    if (JBSucessProcessWeightCount == JBReadyProcessWeightCount)
+                    {
+                        ProcessErrorOrders();
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            else
+            {
+                this.Invoke(new Action<string>(SetJBData), data);
+            }
+        }
+
+        /// <summary>
+        /// 处理问题单号
+        /// </summary>
+        private void ProcessErrorOrders()
+        {
+            foreach (DataGridViewRow item in gvInfo.Rows)
+            {
+                if (item.Cells[4].Value != null&& item.Cells[3].Value != null)//计算误差值
+                {
+                    var value = double.Parse(item.Cells[4].Value.ToString()) - double.Parse(item.Cells[3].Value.ToString());
+                    item.Cells[5].Value = value;
+                    if (item.Cells[7].Value != null && item.Cells[7].Value.ToString().Length > 1)
+                    {
+                        item.Cells[6].Value = value / (item.Cells[7].Value.ToString().Split(',').Length * 1d);
+                    }
+                    else
+                    {
+                        item.Cells[6].Value = 0;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 待处理的重量矫正数量
+        /// </summary>
+        private int JBReadyProcessWeightCount = 0;
+        /// <summary>
+        /// 已处理完的数量
+        /// </summary>
+        private int JBDoneProcessWeightCount = 0;
+        /// <summary>
+        /// 处理成功的数量
+        /// </summary>
+        private int JBSucessProcessWeightCount = 0;
+
+        private bool JBIsComplate = false;
+
+        private int JBRepeatCount = 5;
+
+
+
+        private void ResetJBWeightParam()
+        {
+            JBIsComplate = false;
+            JBDoneProcessWeightCount = 0;
+            JBSucessProcessWeightCount = 0;
+            JBReadyProcessWeightCount = 0;
+            progressBar2.Value = 0;
+            progressBar2.Maximum = 0;
+            JBRepeatCount = 5;
+
+        }
 
 
         private void ResetWeightParam()
@@ -337,25 +470,6 @@ namespace CatchOrderList
 
         private void 更新集包重量ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //foreach (DataGridViewRow item in dataGridView1.Rows)
-            //{
-            //    try
-            //    {
-            //        if (item.Cells[3].Value == null)
-            //            continue;
-            //        if (null == item.Cells[7].Value || string.IsNullOrEmpty(item.Cells[7].Value.ToString()) || double.Parse(item.Cells[7].Value.ToString().Trim()) <= 0 || double.Parse(item.Cells[7].Value.ToString().Trim()) > 2)
-            //        {
-            //            MessageBox.Show("检测到错误选项,行号"+(item.Index+1), "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            item.Cells[7].Selected=true;
-            //            return;
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("检测到错误选项,行号"+(item.Index+1), "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        break;
-            //    }
-            //}
             UpdateBigBagWeight();
         }
 
@@ -371,6 +485,10 @@ namespace CatchOrderList
     public class ChildOrderModel
     {
         public string PID { get; set; }
-        public double weight { get; set; }
+        public double weight { get; set; }//重量
+        /// <summary>
+        /// 问题单号
+        /// </summary>
+        public string OrderNo { get; set; }
     }
 }
