@@ -250,7 +250,7 @@ namespace CatchOrderList
         {
             if (UserValidation.IsRegister)
             {
-                MessageBox.Show("您已经是尊贵的VIP系统用户，如有疑问请联系QQ:380891124！", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("您已经是尊贵的VIP系统用户，如有疑问请联系QQ:1686519114！", "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
