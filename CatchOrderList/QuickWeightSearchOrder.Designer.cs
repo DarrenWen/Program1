@@ -33,14 +33,15 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.gvInfo = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.清空ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,7 +87,8 @@
             this.Column4,
             this.Column12,
             this.Column1,
-            this.Column24});
+            this.Column24,
+            this.Column2});
             this.gvInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.gvInfo.Location = new System.Drawing.Point(0, 25);
@@ -105,31 +107,6 @@
             this.gvInfo.Size = new System.Drawing.Size(832, 654);
             this.gvInfo.TabIndex = 4;
             this.gvInfo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvInfo_CellDoubleClick);
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "ID";
-            this.Column4.Name = "Column4";
-            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column4.Visible = false;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "行号";
-            this.Column12.Name = "Column12";
-            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Column12.Width = 70;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "单号";
-            this.Column1.Name = "Column1";
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column24
-            // 
-            this.Column24.HeaderText = "重量";
-            this.Column24.Name = "Column24";
             // 
             // menuStrip1
             // 
@@ -166,6 +143,36 @@
             this.导出ToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
             this.导出ToolStripMenuItem.Text = "导出";
             this.导出ToolStripMenuItem.Click += new System.EventHandler(this.导出ToolStripMenuItem_Click);
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "ID";
+            this.Column4.Name = "Column4";
+            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column4.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "行号";
+            this.Column12.Name = "Column12";
+            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Column12.Width = 70;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "单号";
+            this.Column1.Name = "Column1";
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column24
+            // 
+            this.Column24.HeaderText = "重量";
+            this.Column24.Name = "Column24";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "目的地";
+            this.Column2.Name = "Column2";
             // 
             // QuickWeightSearchOrder
             // 
@@ -204,5 +211,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

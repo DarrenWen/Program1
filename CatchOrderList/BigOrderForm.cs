@@ -55,7 +55,7 @@ namespace CatchOrderList
                     {
                         dataGridView1.Rows[myrow].Cells[8].Value = "已完成";
                     }
-                    if (weight < 0 || weight > 2)
+                    if (weight <= 0 || weight > 2)
                     {
                         dataGridView1.Rows[myrow].Cells[8].Value = "需要人工处理";
                     }
@@ -269,7 +269,8 @@ namespace CatchOrderList
                 item.Cells[3].Value = infos.Where(u => u.PID == pid).Sum(u => u.weight);
                 var orders = infos.Where(u => u.PID == pid && !string.IsNullOrEmpty(u.OrderNo)).Select(u => u.OrderNo).ToArray();
                 if (null != orders && orders.Length > 0)
-                    item.Cells[7].Value = string.Join(",", orders);
+                    item.Cells[7].Value = string.Join("|", orders);
+                item.Cells[8].Value = orders.Count();
             }
 
             GetJbWeight();
@@ -310,9 +311,10 @@ namespace CatchOrderList
                 {
                     JBDoneProcessWeightCount++;
                     progressBar2.Value = JBDoneProcessWeightCount;
-                    double weight = double.Parse(data.Split(',')[1]);
-                    int myrow = int.Parse(data.Split(',')[0]) - 1;
-                    
+                    var datas = data.Split(',');
+                    double weight = double.Parse(datas[1]);
+                    int myrow = int.Parse(datas[0]) - 1;
+                    gvInfo.Rows[myrow].Cells[9].Value = datas[2];
                     if (weight > 0)
                     {
                         JBSucessProcessWeightCount++;
@@ -363,7 +365,7 @@ namespace CatchOrderList
                     item.Cells[5].Value = value;
                     if (item.Cells[7].Value != null && item.Cells[7].Value.ToString().Length > 1)
                     {
-                        item.Cells[6].Value = value / (item.Cells[7].Value.ToString().Split(',').Length * 1d);
+                        item.Cells[6].Value = String.Format("{0:F}", (value / (item.Cells[7].Value.ToString().Split('|').Length * 1d)));
                     }
                     else
                     {
@@ -476,6 +478,34 @@ namespace CatchOrderList
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
+        }
+
+        private void 一键生成异常单号列表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dataGridView2.Rows.Clear();
+            foreach (DataGridViewRow item in gvInfo.Rows)
+            {
+                if (item.Cells[7].Value!=null&&!string.IsNullOrEmpty(item.Cells[7].Value.ToString()))
+                {
+                    var infos = item.Cells[7].Value.ToString().Split('|');
+                    var weight = item.Cells[6].Value.ToString();
+                    dataGridView2.Rows.Add(infos.Count());
+                    var rowcount = 0;
+                    foreach (var citem in infos)
+                    {
+                        dataGridView2.Rows[rowcount].Cells[1].Value = rowcount + 1;
+                        dataGridView2.Rows[rowcount].Cells[2].Value = citem.Replace("\r", "");
+                        dataGridView2.Rows[rowcount].Cells[3].Value = weight;
+                        rowcount++;
+                    }
+                }
+            }
+            tabControl1.SelectedIndex = 1;
+        }
+
+        private void 导出ToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ExportManager.ExportDataGridViewToExcel(dataGridView2, "待处理重量的单号");
         }
     }
 

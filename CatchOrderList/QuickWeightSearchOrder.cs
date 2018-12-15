@@ -22,9 +22,11 @@ namespace CatchOrderList
             {
                 try
                 {
-                    double weight = double.Parse(data.Split(',')[1]);
-                    int myrow = int.Parse(data.Split(',')[0]) - 1;
+                    var datas = data.Split(',');
+                    double weight = double.Parse(datas[1]);
+                    int myrow = int.Parse(datas[0]) - 1;
                     gvInfo.Rows[myrow].Cells[3].Value = weight < 0  ? 0 : weight;
+                    gvInfo.Rows[myrow].Cells[4].Value = datas[3];
                 }
                 catch (Exception ex)
                 {

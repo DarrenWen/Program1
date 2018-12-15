@@ -109,6 +109,7 @@ namespace CatchOrderList.data
             {
                 HtmlProcess(order, ref orderInfo, ref userInfo, ref replyInfo, ref barCodeInfo);
                 orderInfo = B64Decode(orderInfo);
+                userInfo = B64Decode(userInfo);
                
                 weight = GetWeight(orderInfo);
                 if (order.Substring(0, 1).Trim() != "9" && weight>2)//小包不能大于2公斤
@@ -120,12 +121,47 @@ namespace CatchOrderList.data
             {
                 
             }
+            string address="";
+            string[] userDatas = userInfo.Split(',');
+            if (userDatas.Length>6)
+            {
+                address = userDatas[5] + userDatas[6];
+            }
             if (setSigleData != null)
             {
-                setSigleData(d.Split(',')[1] + "," + weight);
+                setSigleData(d.Split(',')[1] + "," + weight+","+ GetRepeatPack(order,orderInfo)+","+address);
             }
         }
 
+        /// <summary>
+        /// 获取是否重复使用大包
+        /// </summary>
+        /// <returns></returns>
+        private string GetRepeatPack(string orderno, string orderInfo)
+        {
+            if (orderno.Substring(0, 1).Trim() != "9")//小包不能大于2公斤
+            {
+                return "否";
+            }
+                string data = "否";
+            string[] array = orderInfo.Split(';');
+            Array.Sort(array);
+            int repeatCount = 0;
+            foreach (var item in array)
+            {
+                if (!string.IsNullOrEmpty(item) && item.Length > 10)
+                {
+                    string[] darray = item.Split(',');
+                    if (darray[2] == "揽件扫描")
+                    {
+                        repeatCount+=1;
+                    }
+                }
+            }
+            if (repeatCount >= 3)
+                data = "是";
+            return data;
+        }
 
         /// <summary>
         /// 获取重量
