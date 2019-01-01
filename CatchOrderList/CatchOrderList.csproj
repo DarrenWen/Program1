@@ -218,6 +218,18 @@
     <Compile Include="ReportSelectForm.Designer.cs">
       <DependentUpon>ReportSelectForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BigOrderWeightSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BigOrderWeightSearch.Designer.cs">
+      <DependentUpon>BigOrderWeightSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SmallBagToBigBagSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SmallBagToBigBagSearch.Designer.cs">
+      <DependentUpon>SmallBagToBigBagSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="VersionForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,6 +421,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReportSelectForm.resx">
       <DependentUpon>ReportSelectForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BigOrderWeightSearch.resx">
+      <DependentUpon>BigOrderWeightSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SmallBagToBigBagSearch.resx">
+      <DependentUpon>SmallBagToBigBagSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VersionForm.resx">
       <DependentUpon>VersionForm.cs</DependentUpon>

@@ -5,11 +5,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
-
 
 namespace CatchOrderList
 {
@@ -98,7 +99,7 @@ namespace CatchOrderList
                 }
                 catch (Exception ex)
                 {
-                    
+
                 }
             }
             else
@@ -107,12 +108,12 @@ namespace CatchOrderList
             }
         }
 
-        private bool CheckIsExistsOrder(List<string> infos,string d)
+        private bool CheckIsExistsOrder(List<string> infos, string d)
         {
             bool isE = false;
             for (int i = 0; i < infos.Count; i++)
             {
-                if(d==infos[i])
+                if (d == infos[i])
                 {
                     isE = true;
                     break;
@@ -129,7 +130,7 @@ namespace CatchOrderList
             List<string> orders = new List<string>();
             for (int i = 0; i < infos.Length; i++)
             {
-                if(!CheckIsExistsOrder(orders,infos[i]))
+                if (!CheckIsExistsOrder(orders, infos[i]))
                 {
                     orders.Add(infos[i]);
                 }
@@ -139,8 +140,8 @@ namespace CatchOrderList
             var rowcount = 0;
             foreach (var item in orders)
             {
-                gvInfo.Rows[rowcount].Cells[1].Value = rowcount+1;
-                gvInfo.Rows[rowcount].Cells[2].Value = item.Replace("\r","");
+                gvInfo.Rows[rowcount].Cells[1].Value = rowcount + 1;
+                gvInfo.Rows[rowcount].Cells[2].Value = item.Replace("\r", "");
                 gvInfo.Rows[rowcount].Cells[3].Value = "0";
                 rowcount++;
             }
@@ -153,8 +154,8 @@ namespace CatchOrderList
         }
         BigBagProcess p = new BigBagProcess();
         PageDataProcess pageProcess = new PageDataProcess();
-        
-       
+
+
         private void 采集数据ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ResetWeightParam();
@@ -169,12 +170,12 @@ namespace CatchOrderList
                 ThreadPool.QueueUserWorkItem(state => p.Start(orderno));
             }
         }
-        
+
 
 
         private void DataCatch(object d)
         {
-            List<string> orders =  d as List<string>;
+            List<string> orders = d as List<string>;
             foreach (var item in orders)
             {
                 p.Start(item);
@@ -183,41 +184,41 @@ namespace CatchOrderList
         int rowCount = 0;
 
 
-        
+
 
         private void ShowChildData(DataTable dt)
         {
-            if(this.InvokeRequired)
+            if (this.InvokeRequired)
             {
-                this.Invoke(new Action<DataTable>(ShowChildData),dt);
+                this.Invoke(new Action<DataTable>(ShowChildData), dt);
                 return;
             }
-            
+
             if (dt.Rows.Count < 1)
                 return;
-            
-                dataGridView1.Rows.Add(dt.Rows.Count);
-                foreach (DataRow item in dt.Rows)
-                {
-                    var i = 0;
-                    dataGridView1.Rows[rowCount].Cells[0].Value = item[i];
-                    i++;
-                    dataGridView1.Rows[rowCount].Cells[1].Value = rowCount + 1;
-                    dataGridView1.Rows[rowCount].Cells[2].Value = item[i++];
-                    dataGridView1.Rows[rowCount].Cells[3].Value = item[6];
-                    dataGridView1.Rows[rowCount].Cells[4].Value = item[i++];
-                    i++;
-                    dataGridView1.Rows[rowCount].Cells[5].Value = item[i++];
-                    dataGridView1.Rows[rowCount].Cells[6].Value = item[i++].ToString().Trim();
-                    dataGridView1.Rows[rowCount].Cells[7].Value = "0";
-                    dataGridView1.Rows[rowCount].Cells[8].Value = "未纠正";
 
-                    if (dataGridView1.Rows[rowCount].Cells[8].Value.ToString() == "未纠正")
-                        this.dataGridView1.Rows[rowCount].DefaultCellStyle.ForeColor = Color.Black;
-                    else
-                        this.dataGridView1.Rows[rowCount].DefaultCellStyle.ForeColor = Color.Green;
-                    rowCount++;
-                }
+            dataGridView1.Rows.Add(dt.Rows.Count);
+            foreach (DataRow item in dt.Rows)
+            {
+                var i = 0;
+                dataGridView1.Rows[rowCount].Cells[0].Value = item[i];
+                i++;
+                dataGridView1.Rows[rowCount].Cells[1].Value = rowCount + 1;
+                dataGridView1.Rows[rowCount].Cells[2].Value = item[i++];
+                dataGridView1.Rows[rowCount].Cells[3].Value = item[6];
+                dataGridView1.Rows[rowCount].Cells[4].Value = item[i++];
+                i++;
+                dataGridView1.Rows[rowCount].Cells[5].Value = item[i++];
+                dataGridView1.Rows[rowCount].Cells[6].Value = item[i++].ToString().Trim();
+                dataGridView1.Rows[rowCount].Cells[7].Value = "0";
+                dataGridView1.Rows[rowCount].Cells[8].Value = "未纠正";
+
+                if (dataGridView1.Rows[rowCount].Cells[8].Value.ToString() == "未纠正")
+                    this.dataGridView1.Rows[rowCount].DefaultCellStyle.ForeColor = Color.Black;
+                else
+                    this.dataGridView1.Rows[rowCount].DefaultCellStyle.ForeColor = Color.Green;
+                rowCount++;
+            }
         }
 
         private void 数据纠偏ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -227,7 +228,7 @@ namespace CatchOrderList
 
         private void GetWeight()
         {
-            if(DoneProcessWeightCount!=ReadyProcessWeightCount)
+            if (DoneProcessWeightCount != ReadyProcessWeightCount)
             {
                 return;
             }
@@ -249,7 +250,7 @@ namespace CatchOrderList
             List<ChildOrderModel> infos = new List<ChildOrderModel>();
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
-                if (item.Cells[3].Value == null|| item.Cells[7].Value==null|| string.IsNullOrEmpty(item.Cells[7].Value.ToString()))
+                if (item.Cells[3].Value == null || item.Cells[7].Value == null || string.IsNullOrEmpty(item.Cells[7].Value.ToString()))
                     continue;
                 ChildOrderModel m = new ChildOrderModel();
                 m.PID = item.Cells[3].Value.ToString();
@@ -293,11 +294,11 @@ namespace CatchOrderList
             ResetJBWeightParam();
             foreach (DataGridViewRow item in gvInfo.Rows)
             {
-                if (item.Cells[2].Value != null&& item.Cells[4].Value == null)
+                if (item.Cells[2].Value != null && item.Cells[4].Value == null)
                 {
                     JBReadyProcessWeightCount++;
                     progressBar2.Maximum++;
-                    ThreadPool.QueueUserWorkItem(state => process.ProcessOrderWeight(item.Cells[2].Value.ToString() + "," + item.Cells[1].Value.ToString()));
+                    ThreadPool.QueueUserWorkItem(state => process.ProcessOrderWeight(item.Cells[2].Value.ToString() + "," + item.Cells[1].Value.ToString(), true));
                 }
             }
         }
@@ -319,9 +320,23 @@ namespace CatchOrderList
                     {
                         JBSucessProcessWeightCount++;
                         gvInfo.Rows[myrow].Cells[4].Value = weight;
+
+                        if (gvInfo.Rows[myrow].Cells[4].Value != null && gvInfo.Rows[myrow].Cells[3].Value != null)//计算误差值
+                        {
+                            var value = double.Parse(gvInfo.Rows[myrow].Cells[4].Value.ToString()) - double.Parse(gvInfo.Rows[myrow].Cells[3].Value.ToString());
+                            gvInfo.Rows[myrow].Cells[5].Value = value;
+                            if (gvInfo.Rows[myrow].Cells[7].Value != null && gvInfo.Rows[myrow].Cells[7].Value.ToString().Length > 1)
+                            {
+                                gvInfo.Rows[myrow].Cells[6].Value = String.Format("{0:F}", (value / (gvInfo.Rows[myrow].Cells[7].Value.ToString().Split('|').Length * 1d)));
+                            }
+                            else
+                            {
+                                gvInfo.Rows[myrow].Cells[6].Value = 0;
+                            }
+                        }
                     }
 
-                    
+
                     if (JBReadyProcessWeightCount == JBDoneProcessWeightCount && JBSucessProcessWeightCount != JBReadyProcessWeightCount)
                     {
                         JBRepeatCount--;
@@ -343,7 +358,7 @@ namespace CatchOrderList
                 }
                 catch (Exception ex)
                 {
-
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -359,7 +374,7 @@ namespace CatchOrderList
         {
             foreach (DataGridViewRow item in gvInfo.Rows)
             {
-                if (item.Cells[4].Value != null&& item.Cells[3].Value != null)//计算误差值
+                if (item.Cells[4].Value != null && item.Cells[3].Value != null)//计算误差值
                 {
                     var value = double.Parse(item.Cells[4].Value.ToString()) - double.Parse(item.Cells[3].Value.ToString());
                     item.Cells[5].Value = value;
@@ -483,14 +498,15 @@ namespace CatchOrderList
         private void 一键生成异常单号列表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             dataGridView2.Rows.Clear();
+            var rowcount = 0;
             foreach (DataGridViewRow item in gvInfo.Rows)
             {
-                if (item.Cells[7].Value!=null&&!string.IsNullOrEmpty(item.Cells[7].Value.ToString()))
+                if ((item.Cells[6].Value != null && !string.IsNullOrEmpty(item.Cells[6].Value.ToString())) && (item.Cells[7].Value != null && !string.IsNullOrEmpty(item.Cells[7].Value.ToString())))
                 {
                     var infos = item.Cells[7].Value.ToString().Split('|');
                     var weight = item.Cells[6].Value.ToString();
                     dataGridView2.Rows.Add(infos.Count());
-                    var rowcount = 0;
+
                     foreach (var citem in infos)
                     {
                         dataGridView2.Rows[rowcount].Cells[1].Value = rowcount + 1;
@@ -506,6 +522,53 @@ namespace CatchOrderList
         private void 导出ToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             ExportManager.ExportDataGridViewToExcel(dataGridView2, "待处理重量的单号");
+        }
+
+        private void 保存集包单号ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "\\OrderFile";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            DateTime beginTime = DateTime.Parse(DateTime.Now.AddDays(-1).ToShortDateString() + " 12:00:00");
+            DateTime endTime = DateTime.Parse(DateTime.Now.ToShortDateString() + " 12:00:00");
+            var currentDay = DateTime.Now;
+            if (beginTime <= DateTime.Now && DateTime.Now <= endTime)//按之前一天计算
+            {
+                currentDay = currentDay.AddDays(-1);
+            }
+            string fileName = currentDay.Year + "_" + currentDay.Month + "_" + currentDay.Day+".txt";
+            MatchEvaluator me = delegate (Match m)
+            {
+                return "\r\n";
+            };
+            string rep = Regex.Replace(textBox1.Text, @"\n", me);
+            Write(path+"\\"+fileName,rep+"\r\n");
+        }
+
+        public void Write(string path,string data)
+        {
+            try
+            {
+                FileStream fs = new FileStream(path, FileMode.Append);
+                StreamWriter sw = new StreamWriter(fs);
+                //开始写入
+                sw.Write(data);
+                //清空缓冲区
+                sw.Flush();
+                //关闭流
+                sw.Close();
+                fs.Close();
+                if(MessageBox.Show("保存成功，是否打开文件保存目录?", "系统提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+                {
+                    System.Diagnostics.Process.Start(AppDomain.CurrentDomain.BaseDirectory + "\\OrderFile");
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
         }
     }
 

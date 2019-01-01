@@ -34,7 +34,7 @@ namespace CatchOrderList
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderManagerForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbnoWeight = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -155,7 +155,7 @@ namespace CatchOrderList
             this.cbnoWeight.ForeColor = System.Drawing.Color.Red;
             this.cbnoWeight.Location = new System.Drawing.Point(776, 13);
             this.cbnoWeight.Name = "cbnoWeight";
-            this.cbnoWeight.Size = new System.Drawing.Size(121, 27);
+            this.cbnoWeight.Size = new System.Drawing.Size(108, 16);
             this.cbnoWeight.TabIndex = 24;
             this.cbnoWeight.Text = "不跳过没有重量";
             this.cbnoWeight.UseVisualStyleBackColor = true;
@@ -179,7 +179,7 @@ namespace CatchOrderList
             this.cbReturn.ForeColor = System.Drawing.Color.Red;
             this.cbReturn.Location = new System.Drawing.Point(776, 47);
             this.cbReturn.Name = "cbReturn";
-            this.cbReturn.Size = new System.Drawing.Size(73, 27);
+            this.cbReturn.Size = new System.Drawing.Size(60, 16);
             this.cbReturn.TabIndex = 22;
             this.cbReturn.Text = "退回件";
             this.cbReturn.UseVisualStyleBackColor = true;
@@ -202,7 +202,7 @@ namespace CatchOrderList
             this.cbCheckCheck.ForeColor = System.Drawing.Color.Red;
             this.cbCheckCheck.Location = new System.Drawing.Point(661, 14);
             this.cbCheckCheck.Name = "cbCheckCheck";
-            this.cbCheckCheck.Size = new System.Drawing.Size(109, 27);
+            this.cbCheckCheck.Size = new System.Drawing.Size(96, 16);
             this.cbCheckCheck.TabIndex = 19;
             this.cbCheckCheck.Text = "不跳过已签收";
             this.cbCheckCheck.UseVisualStyleBackColor = true;
@@ -213,7 +213,7 @@ namespace CatchOrderList
             this.cbPoint.ForeColor = System.Drawing.Color.Red;
             this.cbPoint.Location = new System.Drawing.Point(582, 15);
             this.cbPoint.Name = "cbPoint";
-            this.cbPoint.Size = new System.Drawing.Size(85, 27);
+            this.cbPoint.Size = new System.Drawing.Size(72, 16);
             this.cbPoint.TabIndex = 18;
             this.cbPoint.Text = "单号定位";
             this.cbPoint.UseVisualStyleBackColor = true;
@@ -225,7 +225,7 @@ namespace CatchOrderList
             this.cbChuidan.ForeColor = System.Drawing.Color.Red;
             this.cbChuidan.Location = new System.Drawing.Point(582, 49);
             this.cbChuidan.Name = "cbChuidan";
-            this.cbChuidan.Size = new System.Drawing.Size(85, 27);
+            this.cbChuidan.Size = new System.Drawing.Size(72, 16);
             this.cbChuidan.TabIndex = 15;
             this.cbChuidan.Text = "需要催单";
             this.cbChuidan.UseVisualStyleBackColor = true;
@@ -316,7 +316,7 @@ namespace CatchOrderList
             this.cbReciveDate.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbReciveDate.Location = new System.Drawing.Point(199, 51);
             this.cbReciveDate.Name = "cbReciveDate";
-            this.cbReciveDate.Size = new System.Drawing.Size(91, 27);
+            this.cbReciveDate.Size = new System.Drawing.Size(78, 16);
             this.cbReciveDate.TabIndex = 5;
             this.cbReciveDate.Text = "收件日期:";
             this.cbReciveDate.UseVisualStyleBackColor = true;
@@ -374,7 +374,8 @@ namespace CatchOrderList
             "异常签收",
             "未签收",
             "未处理",
-            "无物流信息"});
+            "无物流信息",
+            "漏件补收"});
             this.cbOrderState.Location = new System.Drawing.Point(465, 12);
             this.cbOrderState.Name = "cbOrderState";
             this.cbOrderState.Size = new System.Drawing.Size(104, 20);
@@ -420,10 +421,10 @@ namespace CatchOrderList
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.splitContainer1);
-            this.tabPage2.Location = new System.Drawing.Point(8, 27);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1184, 508);
+            this.tabPage2.Size = new System.Drawing.Size(1192, 517);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "单号列表";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -442,8 +443,8 @@ namespace CatchOrderList
             // 
             this.splitContainer1.Panel2.Controls.Add(this.gvInfo);
             this.splitContainer1.Panel2.Controls.Add(this.panel4);
-            this.splitContainer1.Size = new System.Drawing.Size(1178, 502);
-            this.splitContainer1.SplitterDistance = 212;
+            this.splitContainer1.Size = new System.Drawing.Size(1186, 511);
+            this.splitContainer1.SplitterDistance = 213;
             this.splitContainer1.TabIndex = 0;
             // 
             // tvCustomer
@@ -455,7 +456,7 @@ namespace CatchOrderList
             this.tvCustomer.Location = new System.Drawing.Point(0, 0);
             this.tvCustomer.Name = "tvCustomer";
             this.tvCustomer.SelectedImageIndex = 0;
-            this.tvCustomer.Size = new System.Drawing.Size(212, 502);
+            this.tvCustomer.Size = new System.Drawing.Size(213, 511);
             this.tvCustomer.TabIndex = 0;
             this.tvCustomer.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.tvCustomer_AfterCheck);
             // 
@@ -502,18 +503,18 @@ namespace CatchOrderList
             this.gvInfo.Location = new System.Drawing.Point(0, 0);
             this.gvInfo.Name = "gvInfo";
             this.gvInfo.ReadOnly = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gvInfo.RowTemplate.Height = 23;
             this.gvInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gvInfo.ShowCellErrors = false;
-            this.gvInfo.Size = new System.Drawing.Size(962, 472);
+            this.gvInfo.Size = new System.Drawing.Size(969, 481);
             this.gvInfo.TabIndex = 3;
             this.gvInfo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvInfo_CellContentDoubleClick);
             this.gvInfo.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvInfo_CellMouseDown);
@@ -680,13 +681,13 @@ namespace CatchOrderList
             this.tsmiMSG,
             this.tsmiopenimage});
             this.cmsShowInfo.Name = "contextMenuStrip1";
-            this.cmsShowInfo.Size = new System.Drawing.Size(201, 276);
+            this.cmsShowInfo.Size = new System.Drawing.Size(141, 276);
             // 
             // tsmiUpdate
             // 
             this.tsmiUpdate.Image = global::CatchOrderList.Properties.Resources.pf;
             this.tsmiUpdate.Name = "tsmiUpdate";
-            this.tsmiUpdate.Size = new System.Drawing.Size(200, 38);
+            this.tsmiUpdate.Size = new System.Drawing.Size(140, 38);
             this.tsmiUpdate.Text = "修改客户";
             this.tsmiUpdate.Click += new System.EventHandler(this.tsmiUpdate_Click);
             // 
@@ -694,7 +695,7 @@ namespace CatchOrderList
             // 
             this.tsmiUpdateDate.Image = global::CatchOrderList.Properties.Resources.design;
             this.tsmiUpdateDate.Name = "tsmiUpdateDate";
-            this.tsmiUpdateDate.Size = new System.Drawing.Size(200, 38);
+            this.tsmiUpdateDate.Size = new System.Drawing.Size(140, 38);
             this.tsmiUpdateDate.Text = "修改日期";
             this.tsmiUpdateDate.Click += new System.EventHandler(this.tsmiUpdateDate_Click);
             // 
@@ -702,20 +703,20 @@ namespace CatchOrderList
             // 
             this.tsmiDel.Image = global::CatchOrderList.Properties.Resources.wrong;
             this.tsmiDel.Name = "tsmiDel";
-            this.tsmiDel.Size = new System.Drawing.Size(200, 38);
+            this.tsmiDel.Size = new System.Drawing.Size(140, 38);
             this.tsmiDel.Text = "删除单号";
             this.tsmiDel.Click += new System.EventHandler(this.tsmiDel_Click);
             // 
             // ddToolStripMenuItem
             // 
             this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(197, 6);
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(137, 6);
             // 
             // tsmiAddRemark
             // 
             this.tsmiAddRemark.Image = global::CatchOrderList.Properties.Resources.columns;
             this.tsmiAddRemark.Name = "tsmiAddRemark";
-            this.tsmiAddRemark.Size = new System.Drawing.Size(200, 38);
+            this.tsmiAddRemark.Size = new System.Drawing.Size(140, 38);
             this.tsmiAddRemark.Text = "添加备注";
             this.tsmiAddRemark.Click += new System.EventHandler(this.tsmiAddRemark_Click);
             // 
@@ -726,7 +727,7 @@ namespace CatchOrderList
             this.tsmicopyaddress});
             this.复制ToolStripMenuItem.Image = global::CatchOrderList.Properties.Resources.doc2;
             this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(200, 38);
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(140, 38);
             this.复制ToolStripMenuItem.Text = "复制";
             this.复制ToolStripMenuItem.Visible = false;
             // 
@@ -734,7 +735,7 @@ namespace CatchOrderList
             // 
             this.tsmicopyorderno.Image = global::CatchOrderList.Properties.Resources.square_blueS;
             this.tsmicopyorderno.Name = "tsmicopyorderno";
-            this.tsmicopyorderno.Size = new System.Drawing.Size(160, 38);
+            this.tsmicopyorderno.Size = new System.Drawing.Size(100, 22);
             this.tsmicopyorderno.Text = "单号";
             this.tsmicopyorderno.Click += new System.EventHandler(this.tsmicopyorderno_Click);
             // 
@@ -742,7 +743,7 @@ namespace CatchOrderList
             // 
             this.tsmicopyaddress.Image = global::CatchOrderList.Properties.Resources.square_blueS;
             this.tsmicopyaddress.Name = "tsmicopyaddress";
-            this.tsmicopyaddress.Size = new System.Drawing.Size(160, 38);
+            this.tsmicopyaddress.Size = new System.Drawing.Size(100, 22);
             this.tsmicopyaddress.Text = "地址";
             this.tsmicopyaddress.Click += new System.EventHandler(this.tsmicopyaddress_Click);
             // 
@@ -750,7 +751,7 @@ namespace CatchOrderList
             // 
             this.tsmiMSG.Image = global::CatchOrderList.Properties.Resources.comment;
             this.tsmiMSG.Name = "tsmiMSG";
-            this.tsmiMSG.Size = new System.Drawing.Size(200, 38);
+            this.tsmiMSG.Size = new System.Drawing.Size(140, 38);
             this.tsmiMSG.Text = "留言信息";
             this.tsmiMSG.Click += new System.EventHandler(this.tsmiMSG_Click);
             // 
@@ -758,7 +759,7 @@ namespace CatchOrderList
             // 
             this.tsmiopenimage.Image = global::CatchOrderList.Properties.Resources.folderopen;
             this.tsmiopenimage.Name = "tsmiopenimage";
-            this.tsmiopenimage.Size = new System.Drawing.Size(200, 38);
+            this.tsmiopenimage.Size = new System.Drawing.Size(140, 38);
             this.tsmiopenimage.Text = "单号图片";
             this.tsmiopenimage.Click += new System.EventHandler(this.tsmiopenimage_Click);
             // 
@@ -768,9 +769,9 @@ namespace CatchOrderList
             this.panel4.Controls.Add(this.pbTotal);
             this.panel4.Controls.Add(this.anpageinfo);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 472);
+            this.panel4.Location = new System.Drawing.Point(0, 481);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(962, 30);
+            this.panel4.Size = new System.Drawing.Size(969, 30);
             this.panel4.TabIndex = 0;
             // 
             // lblTip
@@ -778,7 +779,7 @@ namespace CatchOrderList
             this.lblTip.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTip.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblTip.ForeColor = System.Drawing.Color.Red;
-            this.lblTip.Location = new System.Drawing.Point(156, 4);
+            this.lblTip.Location = new System.Drawing.Point(159, 4);
             this.lblTip.Name = "lblTip";
             this.lblTip.Size = new System.Drawing.Size(100, 23);
             this.lblTip.TabIndex = 3;
@@ -790,7 +791,7 @@ namespace CatchOrderList
             this.pbTotal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbTotal.Location = new System.Drawing.Point(0, 0);
             this.pbTotal.Name = "pbTotal";
-            this.pbTotal.Size = new System.Drawing.Size(399, 30);
+            this.pbTotal.Size = new System.Drawing.Size(406, 30);
             this.pbTotal.TabIndex = 2;
             // 
             // anpageinfo
@@ -800,7 +801,7 @@ namespace CatchOrderList
             this.anpageinfo.BtnTextNext = "下页";
             this.anpageinfo.BtnTextPrevious = "上页";
             this.anpageinfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.anpageinfo.Location = new System.Drawing.Point(399, 0);
+            this.anpageinfo.Location = new System.Drawing.Point(406, 0);
             this.anpageinfo.Margin = new System.Windows.Forms.Padding(6);
             this.anpageinfo.Name = "anpageinfo";
             this.anpageinfo.PageSize = 300;

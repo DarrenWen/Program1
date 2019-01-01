@@ -404,6 +404,9 @@ namespace CatchOrderList
                 case 4:
                     return "无物流信息";
                     break;
+                case 5:
+                    return "漏件补收";
+                    break;
                 default:
                     return "未签收";
                     break;

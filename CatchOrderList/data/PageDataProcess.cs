@@ -69,6 +69,8 @@ namespace CatchOrderList.data
 
         public Action<OrderInfo> PrintOrderInfo;
 
+        public Action<string> GetBigOrderInfo;
+
 
         public void OpenView(OrderInfo nowOrder)
         {
@@ -96,7 +98,7 @@ namespace CatchOrderList.data
         /// </summary>
         /// <param name="orderNo"></param>
         /// <returns></returns>
-        public void ProcessOrderWeight(string d)
+        public void ProcessOrderWeight(string d,bool isBigOrder=false)
         {
             string order = d.Split(',')[0];
             string orderInfo = "";//订单信息
@@ -110,8 +112,11 @@ namespace CatchOrderList.data
                 HtmlProcess(order, ref orderInfo, ref userInfo, ref replyInfo, ref barCodeInfo);
                 orderInfo = B64Decode(orderInfo);
                 userInfo = B64Decode(userInfo);
-               
-                weight = GetWeight(orderInfo);
+                if (order.Substring(0, 1).Trim() != "9")//小包不能大于2公斤
+                {
+                    isBigOrder = false;
+                }
+                    weight = GetWeight(orderInfo,isBigOrder);
                 if (order.Substring(0, 1).Trim() != "9" && weight>2)//小包不能大于2公斤
                 {
                     weight = 0;
@@ -132,6 +137,117 @@ namespace CatchOrderList.data
                 setSigleData(d.Split(',')[1] + "," + weight+","+ GetRepeatPack(order,orderInfo)+","+address);
             }
         }
+
+        /// <summary>
+        /// 获取小件大包单号
+        /// </summary>
+        /// <param name="orderNo"></param>
+        /// <returns></returns>
+        public void GetOrderBigOrder(string d, bool isBigOrder = false)
+        {
+            string order = d.Split(',')[0];
+            string orderInfo = "";//订单信息
+            string userInfo = "";//收件人信息
+            string replyInfo = "";//留言信息
+            string barCodeInfo = "";//条码扫描信息
+
+            string orderno = "";
+            try
+            {
+                HtmlProcess(order, ref orderInfo, ref userInfo, ref replyInfo, ref barCodeInfo);
+                orderInfo = B64Decode(orderInfo);
+                userInfo = B64Decode(userInfo);
+
+                orderno = GetBigOrderNo(orderInfo);
+               
+            }
+            catch (Exception ex)
+            {
+
+            }
+            string address = "";
+            string[] userDatas = userInfo.Split(',');
+            if (userDatas.Length > 6)
+            {
+                address = userDatas[5] + userDatas[6];
+            }
+            if (GetBigOrderInfo != null)
+            {
+                GetBigOrderInfo(d.Split(',')[1] + "," + orderno + "," + GetRepeatPack(order, orderInfo) + "," + address);
+            }
+        }
+        /// <summary>
+        /// 获取大包订单号
+        /// </summary>
+        /// <returns></returns>
+        private string GetBigOrderNo(string orderInfo)
+        {
+            string data="";
+            string[] array = orderInfo.Split(';');
+            Array.Sort(array);
+
+            foreach (var item in array)//小包
+            {
+                if (!string.IsNullOrEmpty(item) && item.Length > 10)
+                {
+                    string[] darray = item.Split(',');
+                    if (darray[2] == "网点集包扫描")
+                    {
+                        if (darray[3].Contains("装入大包"))
+                        {
+                            string info = Html2Text(darray[3].Trim());
+                            data =info.Substring(info.IndexOf("装入大包")+4,13);
+                            break;
+                        }
+                    }
+                }
+            }
+            if (array.Length>1&&string.IsNullOrEmpty(data))
+            {
+                data = "无集包信息";
+            }
+            return data;
+        }
+
+
+        public static string Html2Text(string htmlStr)
+
+        {
+
+            if (String.IsNullOrEmpty(htmlStr))
+
+            {
+
+                return "";
+
+            }
+
+            string regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; //定义style的正则表达式 
+
+            string regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; //定义script的正则表达式   
+
+            string regEx_html = "<[^>]+>"; //定义HTML标签的正则表达式   
+
+            htmlStr = Regex.Replace(htmlStr, regEx_style, "");//删除css
+
+            htmlStr = Regex.Replace(htmlStr, regEx_script, "");//删除js
+
+            htmlStr = Regex.Replace(htmlStr, regEx_html, "");//删除html标记
+
+            htmlStr = Regex.Replace(htmlStr, "\\s*|\t|\r|\n", "");//去除tab、空格、空行
+
+            htmlStr = htmlStr.Replace(" ", "");
+
+            htmlStr = htmlStr.Replace("\"", "");//去除异常的引号" " "
+        
+
+            htmlStr = htmlStr.Replace("\"", "");
+
+    return htmlStr.Trim();
+
+        }
+
+
 
         /// <summary>
         /// 获取是否重复使用大包
@@ -163,16 +279,18 @@ namespace CatchOrderList.data
             return data;
         }
 
+
         /// <summary>
         /// 获取重量
         /// </summary>
         /// <param name="orderInfo"></param>
         /// <returns></returns>
-        private double GetWeight(string orderInfo)
+        private double QuiciGetWeight(string orderInfo, bool IsbigOrder = false)
         {
             double weight = 0d;
             string[] array = orderInfo.Split(';');
             Array.Sort(array);
+
 
             foreach (var item in array)//小包
             {
@@ -181,7 +299,7 @@ namespace CatchOrderList.data
                     string[] darray = item.Split(',');
                     if (darray[2] == "揽件扫描")
                     {
-                        if (darray[3].Contains("集包分部") && darray[3].Contains("518123") && darray[4].Trim().Length<=2 && !string.IsNullOrEmpty(darray[7].Trim()))
+                        if (darray[3].Contains("集包分部") && darray[3].Contains("518123") && darray[4].Trim().Length <= 2 && !string.IsNullOrEmpty(darray[7].Trim()))
                         {
                             weight = double.Parse(darray[7].Trim());
                             if (weight < 2)
@@ -192,28 +310,6 @@ namespace CatchOrderList.data
                     }
                 }
             }
-
-            if (weight>0)
-            {
-                return weight;
-            }
-
-            foreach (var item in array) //小包
-            {
-                if (!string.IsNullOrEmpty(item) && item.Length > 10)
-                {
-                    string[] darray = item.Split(',');
-                    if (darray[3].Contains("518000") && darray[3].Contains("518123") && !string.IsNullOrEmpty(darray[7].Trim()))
-                    {
-                        weight = double.Parse(darray[7].Trim());
-                        if (weight < 2)
-                            break;
-                        else
-                            weight = 0;
-                    }
-                }
-            }
-
             if (weight > 0)
             {
                 return weight;
@@ -234,11 +330,90 @@ namespace CatchOrderList.data
                 }
             }
 
-            if (array.Length > 2 && weight <= 0)
-            {
-                weight = 0;//如果有记录但没数据，默认未需要人工介入修改的
-            }
             return weight;
+
+        }
+
+        /// <summary>
+        /// 获取重量
+        /// </summary>
+        /// <param name="orderInfo"></param>
+        /// <returns></returns>
+        private double GetWeight(string orderInfo,bool IsbigOrder=false)
+        {
+            double weight = 0d;
+            string[] array = orderInfo.Split(';');
+            Array.Sort(array);
+
+            if (!IsbigOrder)
+            {
+                foreach (var item in array)//小包
+                {
+                    if (!string.IsNullOrEmpty(item) && item.Length > 10)
+                    {
+                        string[] darray = item.Split(',');
+                        if (darray[2] == "揽件扫描")
+                        {
+                            if (darray[3].Contains("集包分部") && darray[3].Contains("518123") && darray[4].Trim().Length <= 2 && !string.IsNullOrEmpty(darray[7].Trim()))
+                            {
+                                weight = double.Parse(darray[7].Trim());
+                                if (weight < 2)
+                                    break;
+                                else
+                                    weight = 0;
+                            }
+                        }
+                    }
+                }
+                if (weight > 0)
+                {
+                    return weight;
+                }
+            }
+            else
+            {
+                foreach (var item in array) //大包
+                {
+                    if (!string.IsNullOrEmpty(item) && item.Length > 10)
+                    {
+                        string[] darray = item.Split(',');
+                        if (darray[3].Contains("518000") && darray[3].Contains("518123") && !string.IsNullOrEmpty(darray[7].Trim()))
+                        {
+                            weight = double.Parse(darray[7].Trim());
+                        }
+                    }
+                }
+                if (weight > 0)
+                {
+                    return weight;
+                }
+            }
+
+            return 0;
+
+
+            //foreach (var item in array)
+            //{
+            //    if (!string.IsNullOrEmpty(item) && item.Length > 10)
+            //    {
+            //        string[] darray = item.Split(',');
+            //        if (!string.IsNullOrEmpty(darray[7].Trim()))
+            //        {
+
+            //            weight = double.Parse(darray[7].Trim());
+
+            //            break;
+            //        }
+            //    }
+            //}
+
+            //if (array.Length > 2 && weight <= 0)
+            //{
+            //    weight = 0;//如果有记录但没数据，默认未需要人工介入修改的
+            //}
+            //return weight;
+
+
         }
 
 
@@ -305,11 +480,11 @@ namespace CatchOrderList.data
                 nowOrder.Paream1 = GetCompCode(orderInfo);//作为揽件扫描编码
                 nowOrder.Paream3 = replyInfo;//保存留言信息
                 nowOrder.Paream6 = GetReturnState(orderInfo);
-                var weight = GetWeight(orderInfo);
-                if (order.Substring(0, 1).Trim() != "9" && weight > 2)//小包不能大于2公斤
-                {
-                    weight = 0;
-                }
+                var weight = QuiciGetWeight(orderInfo);
+                //if (order.Substring(0, 1).Trim() != "9" && weight > 2)//小包不能大于2公斤
+                //{
+                //    weight = 0;
+                //}
                 nowOrder.Paream7 = (int)(weight*100);
 
                 nowOrder.Paream4 = GetPickPerson(orderInfo);//获取揽件员信息
@@ -524,6 +699,21 @@ namespace CatchOrderList.data
             ////如果只有一条信息并且处于“揽件扫描”，则说明无物流信息
             if (dts.Length == 1 && dts[0].Split(',')[2] == "揽件扫描")
                 return 4;
+            bool isNoAct = true;
+
+            foreach (var item in dts)
+            {
+                string[] mydata = item.Split(',');
+                if (mydata[2].Contains("扫描")&&mydata[3].Contains("深圳"))
+                {
+                    isNoAct = false;
+                    break;
+                }
+            }
+            if (isNoAct)
+            {
+                return 5;//漏件补收
+            }
 
             if (dts.Length > 1)
             {

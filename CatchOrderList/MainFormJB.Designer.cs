@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormJB));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.nfInfo = new System.Windows.Forms.NotifyIcon(this.components);
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tsmiNote = new System.Windows.Forms.ToolStripStatusLabel();
-            this.timCheck = new System.Windows.Forms.Timer(this.components);
             this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSysSet = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUserManager = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +41,9 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsmiFormat = new System.Windows.Forms.ToolStripMenuItem();
             this.集包查询ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.集包查询ToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.小件大包号查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.快速查询大包重量ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiCusMag = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAddCus = new System.Windows.Forms.ToolStripMenuItem();
             this.客户信息管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,6 +73,10 @@
             this.tsmiRecover = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiZhc = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiZDzc = new System.Windows.Forms.ToolStripMenuItem();
+            this.nfInfo = new System.Windows.Forms.NotifyIcon(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsmiNote = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timCheck = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -99,37 +102,6 @@
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.Visible = false;
-            // 
-            // nfInfo
-            // 
-            this.nfInfo.Icon = ((System.Drawing.Icon)(resources.GetObject("nfInfo.Icon")));
-            this.nfInfo.Text = "notifyIcon1";
-            this.nfInfo.Visible = true;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiNote});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 727);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1370, 22);
-            this.statusStrip1.TabIndex = 8;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // tsmiNote
-            // 
-            this.tsmiNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tsmiNote.Name = "tsmiNote";
-            this.tsmiNote.Size = new System.Drawing.Size(1340, 17);
-            this.tsmiNote.Spring = true;
-            this.tsmiNote.Text = "Copyright©2014   Darren380891124    版权所有";
-            // 
-            // timCheck
-            // 
-            this.timCheck.Interval = 3000;
-            this.timCheck.Tick += new System.EventHandler(this.timCheck_Tick);
             // 
             // 系统管理ToolStripMenuItem
             // 
@@ -205,12 +177,36 @@
             // 
             // 集包查询ToolStripMenuItem1
             // 
+            this.集包查询ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.集包查询ToolStripMenuItem2,
+            this.小件大包号查询ToolStripMenuItem,
+            this.快速查询大包重量ToolStripMenuItem});
             this.集包查询ToolStripMenuItem1.Image = global::CatchOrderList.Properties.Resources.readme;
             this.集包查询ToolStripMenuItem1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.集包查询ToolStripMenuItem1.Name = "集包查询ToolStripMenuItem1";
             this.集包查询ToolStripMenuItem1.Size = new System.Drawing.Size(83, 21);
             this.集包查询ToolStripMenuItem1.Text = "集包查询";
-            this.集包查询ToolStripMenuItem1.Click += new System.EventHandler(this.集包查询ToolStripMenuItem_Click);
+            // 
+            // 集包查询ToolStripMenuItem2
+            // 
+            this.集包查询ToolStripMenuItem2.Name = "集包查询ToolStripMenuItem2";
+            this.集包查询ToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.集包查询ToolStripMenuItem2.Text = "集包查询";
+            this.集包查询ToolStripMenuItem2.Click += new System.EventHandler(this.集包查询ToolStripMenuItem_Click);
+            // 
+            // 小件大包号查询ToolStripMenuItem
+            // 
+            this.小件大包号查询ToolStripMenuItem.Name = "小件大包号查询ToolStripMenuItem";
+            this.小件大包号查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.小件大包号查询ToolStripMenuItem.Text = "小件大包号查询";
+            this.小件大包号查询ToolStripMenuItem.Click += new System.EventHandler(this.小件大包号查询ToolStripMenuItem_Click);
+            // 
+            // 快速查询大包重量ToolStripMenuItem
+            // 
+            this.快速查询大包重量ToolStripMenuItem.Name = "快速查询大包重量ToolStripMenuItem";
+            this.快速查询大包重量ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.快速查询大包重量ToolStripMenuItem.Text = "快速查询大包重量";
+            this.快速查询大包重量ToolStripMenuItem.Click += new System.EventHandler(this.快速查询大包重量ToolStripMenuItem_Click);
             // 
             // tsmiCusMag
             // 
@@ -508,6 +504,37 @@
             this.tsmiZDzc.Text = "自动仲裁系统";
             this.tsmiZDzc.Click += new System.EventHandler(this.tsmiZDzc_Click);
             // 
+            // nfInfo
+            // 
+            this.nfInfo.Icon = ((System.Drawing.Icon)(resources.GetObject("nfInfo.Icon")));
+            this.nfInfo.Text = "notifyIcon1";
+            this.nfInfo.Visible = true;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiNote});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 727);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1370, 22);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tsmiNote
+            // 
+            this.tsmiNote.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tsmiNote.Name = "tsmiNote";
+            this.tsmiNote.Size = new System.Drawing.Size(1340, 17);
+            this.tsmiNote.Spring = true;
+            this.tsmiNote.Text = "Copyright©2014   Darren380891124    版权所有";
+            // 
+            // timCheck
+            // 
+            this.timCheck.Interval = 3000;
+            this.timCheck.Tick += new System.EventHandler(this.timCheck_Tick);
+            // 
             // MainFormJB
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -581,6 +608,9 @@
         private System.Windows.Forms.ToolStripMenuItem vIP单号反查系统ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 快速查重量ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 集包查询ToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 集包查询ToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem 小件大包号查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 快速查询大包重量ToolStripMenuItem;
     }
 }
 

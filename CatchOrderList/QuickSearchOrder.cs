@@ -104,6 +104,12 @@ namespace CatchOrderList
                     gvInfo.Rows[m.Id].Cells[23].Value = m.Paream7.Value*1d/100d;//快件重量;
                     gvInfo.Rows[m.Id].Cells[24].Value = m.Paream0;//条码信息
                     gvInfo.Rows[m.Id].Cells[25].Value = m.Paream2;//三段码信息
+                    string[] thredInfo = m.Paream2.Split(' ');
+                    gvInfo.Rows[m.Id].Cells[26].Value = thredInfo[0];//三段码信息
+                    if(thredInfo.Length>2)
+                    gvInfo.Rows[m.Id].Cells[27].Value = thredInfo[2];//三段码信息
+                    if (thredInfo.Length >4 )
+                        gvInfo.Rows[m.Id].Cells[28].Value = thredInfo[4];//三段码信息
                 }
             }
         }
@@ -141,11 +147,6 @@ namespace CatchOrderList
 
 
 
-        /// <summary>
-        /// 转换快件状态
-        /// </summary>
-        /// <param name="state"></param>
-        /// <returns></returns>
         private string ConvertOrderState(int state, ref Color color)
         {
             switch (state)
@@ -165,6 +166,9 @@ namespace CatchOrderList
                     break;
                 case 4:
                     return "无物流信息";
+                    break;
+                case 5:
+                    return "漏件补收";
                     break;
                 default:
                     return "未签收";
