@@ -349,5 +349,15 @@ namespace CatchOrderList
         {
             new QuickWeightSearchOrder().Show();
         }
+
+        private void 小件大包号查询ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new SmallBagToBigBagSearch().Show();
+        }
+
+        private void 快速查询大包重量ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new BigOrderWeightSearch().Show();
+        }
     }
 }

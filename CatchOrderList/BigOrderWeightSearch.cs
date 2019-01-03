@@ -172,5 +172,16 @@ namespace CatchOrderList
         {
             ExportManager.ExportDataGridViewToExcel(gvInfo, "集包重量查询");
         }
+
+        private void gvInfo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                if (gvInfo.Rows[e.RowIndex].Cells[2].Value == null)
+                    return;
+                string url = "http://kjcx.yundasys.com/kjcx/dbdb.php?dbtxm=" + gvInfo.Rows[e.RowIndex].Cells[2].Value.ToString();
+                System.Diagnostics.Process.Start(url);
+            }
+        }
     }
 }

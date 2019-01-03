@@ -73,6 +73,8 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsmiNote = new System.Windows.Forms.ToolStripStatusLabel();
             this.timCheck = new System.Windows.Forms.Timer(this.components);
+            this.小件大包号查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.快速查询大包重量ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -210,7 +212,9 @@
             this.快速查单ToolStripMenuItem,
             this.vIP单号管理ToolStripMenuItem,
             this.vIP用户信息设置ToolStripMenuItem,
-            this.vIP单号反查系统ToolStripMenuItem});
+            this.vIP单号反查系统ToolStripMenuItem,
+            this.小件大包号查询ToolStripMenuItem,
+            this.快速查询大包重量ToolStripMenuItem});
             this.tsmiOrderMag.Enabled = false;
             this.tsmiOrderMag.Image = global::CatchOrderList.Properties.Resources.Show;
             this.tsmiOrderMag.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
@@ -343,7 +347,7 @@
             this.关于ToolStripMenuItem.Image = global::CatchOrderList.Properties.Resources.group_by;
             this.关于ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
             this.关于ToolStripMenuItem.Text = "关于...(&A)";
             this.关于ToolStripMenuItem.Visible = false;
             // 
@@ -352,7 +356,7 @@
             this.tsmiRegist.Image = global::CatchOrderList.Properties.Resources.MailSendClose;
             this.tsmiRegist.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiRegist.Name = "tsmiRegist";
-            this.tsmiRegist.Size = new System.Drawing.Size(145, 22);
+            this.tsmiRegist.Size = new System.Drawing.Size(185, 22);
             this.tsmiRegist.Text = "软件注册(&R)";
             this.tsmiRegist.Click += new System.EventHandler(this.tsmiRegist_Click);
             // 
@@ -361,7 +365,7 @@
             this.tsmiLogo.Image = global::CatchOrderList.Properties.Resources.doc;
             this.tsmiLogo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiLogo.Name = "tsmiLogo";
-            this.tsmiLogo.Size = new System.Drawing.Size(145, 22);
+            this.tsmiLogo.Size = new System.Drawing.Size(185, 22);
             this.tsmiLogo.Text = "更新日志(&L)";
             this.tsmiLogo.Click += new System.EventHandler(this.tsmiLogo_Click);
             // 
@@ -370,7 +374,7 @@
             this.tsmiReadMe.Image = global::CatchOrderList.Properties.Resources.savefile;
             this.tsmiReadMe.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiReadMe.Name = "tsmiReadMe";
-            this.tsmiReadMe.Size = new System.Drawing.Size(145, 22);
+            this.tsmiReadMe.Size = new System.Drawing.Size(185, 22);
             this.tsmiReadMe.Text = "软件说明书";
             this.tsmiReadMe.Click += new System.EventHandler(this.tsmiReadMe_Click);
             // 
@@ -497,6 +501,20 @@
             this.timCheck.Interval = 3000;
             this.timCheck.Tick += new System.EventHandler(this.timCheck_Tick);
             // 
+            // 小件大包号查询ToolStripMenuItem
+            // 
+            this.小件大包号查询ToolStripMenuItem.Name = "小件大包号查询ToolStripMenuItem";
+            this.小件大包号查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.小件大包号查询ToolStripMenuItem.Text = "小件大包号查询";
+            this.小件大包号查询ToolStripMenuItem.Click += new System.EventHandler(this.小件大包号查询ToolStripMenuItem_Click);
+            // 
+            // 快速查询大包重量ToolStripMenuItem
+            // 
+            this.快速查询大包重量ToolStripMenuItem.Name = "快速查询大包重量ToolStripMenuItem";
+            this.快速查询大包重量ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.快速查询大包重量ToolStripMenuItem.Text = "快速查询大包重量";
+            this.快速查询大包重量ToolStripMenuItem.Click += new System.EventHandler(this.快速查询大包重量ToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -569,6 +587,8 @@
         private System.Windows.Forms.ToolStripMenuItem vIP用户信息设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vIP单号反查系统ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 快速查重量ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 小件大包号查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 快速查询大包重量ToolStripMenuItem;
     }
 }
 
