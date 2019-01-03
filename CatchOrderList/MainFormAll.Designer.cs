@@ -1,6 +1,6 @@
 ﻿namespace CatchOrderList
 {
-    partial class MainForm
+    partial class MainFormAll
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormAll));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.系统管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSysSet = new System.Windows.Forms.ToolStripMenuItem();
@@ -257,7 +257,6 @@
             this.集包查询ToolStripMenuItem.Name = "集包查询ToolStripMenuItem";
             this.集包查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.集包查询ToolStripMenuItem.Text = "集包查询";
-            this.集包查询ToolStripMenuItem.Visible = false;
             this.集包查询ToolStripMenuItem.Click += new System.EventHandler(this.集包查询ToolStripMenuItem_Click);
             // 
             // 快速查重量ToolStripMenuItem
@@ -285,7 +284,6 @@
             this.vIP单号管理ToolStripMenuItem.Name = "vIP单号管理ToolStripMenuItem";
             this.vIP单号管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vIP单号管理ToolStripMenuItem.Text = "VIP单号管理";
-            this.vIP单号管理ToolStripMenuItem.Visible = false;
             this.vIP单号管理ToolStripMenuItem.Click += new System.EventHandler(this.vIP单号管理ToolStripMenuItem_Click);
             // 
             // vIP用户信息设置ToolStripMenuItem
@@ -295,7 +293,6 @@
             this.vIP用户信息设置ToolStripMenuItem.Name = "vIP用户信息设置ToolStripMenuItem";
             this.vIP用户信息设置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vIP用户信息设置ToolStripMenuItem.Text = "VIP用户信息设置";
-            this.vIP用户信息设置ToolStripMenuItem.Visible = false;
             this.vIP用户信息设置ToolStripMenuItem.Click += new System.EventHandler(this.vIP用户信息设置ToolStripMenuItem_Click);
             // 
             // vIP单号反查系统ToolStripMenuItem
@@ -305,7 +302,6 @@
             this.vIP单号反查系统ToolStripMenuItem.Name = "vIP单号反查系统ToolStripMenuItem";
             this.vIP单号反查系统ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vIP单号反查系统ToolStripMenuItem.Text = "VIP单号反查系统";
-            this.vIP单号反查系统ToolStripMenuItem.Visible = false;
             this.vIP单号反查系统ToolStripMenuItem.Click += new System.EventHandler(this.vIP单号反查系统ToolStripMenuItem_Click);
             // 
             // 小件大包号查询ToolStripMenuItem
@@ -313,7 +309,6 @@
             this.小件大包号查询ToolStripMenuItem.Name = "小件大包号查询ToolStripMenuItem";
             this.小件大包号查询ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.小件大包号查询ToolStripMenuItem.Text = "小件大包号查询";
-            this.小件大包号查询ToolStripMenuItem.Visible = false;
             this.小件大包号查询ToolStripMenuItem.Click += new System.EventHandler(this.小件大包号查询ToolStripMenuItem_Click);
             // 
             // 快速查询大包重量ToolStripMenuItem
@@ -321,7 +316,6 @@
             this.快速查询大包重量ToolStripMenuItem.Name = "快速查询大包重量ToolStripMenuItem";
             this.快速查询大包重量ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.快速查询大包重量ToolStripMenuItem.Text = "快速查询大包重量";
-            this.快速查询大包重量ToolStripMenuItem.Visible = false;
             this.快速查询大包重量ToolStripMenuItem.Click += new System.EventHandler(this.快速查询大包重量ToolStripMenuItem_Click);
             // 
             // 小工具ToolStripMenuItem
@@ -517,7 +511,7 @@
             this.timCheck.Interval = 3000;
             this.timCheck.Tick += new System.EventHandler(this.timCheck_Tick);
             // 
-            // MainForm
+            // MainFormAll
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -529,7 +523,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "MainForm";
+            this.Name = "MainFormAll";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "智能查单系统";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

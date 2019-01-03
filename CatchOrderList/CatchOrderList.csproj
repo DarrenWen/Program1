@@ -164,6 +164,12 @@
     <Compile Include="IntercedeForm.Designer.cs">
       <DependentUpon>IntercedeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainFormAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainFormAll.Designer.cs">
+      <DependentUpon>MainFormAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainFormFC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,6 +399,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IntercedeForm.resx">
       <DependentUpon>IntercedeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainFormAll.resx">
+      <DependentUpon>MainFormAll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainFormFC.resx">
       <DependentUpon>MainFormFC.cs</DependentUpon>
