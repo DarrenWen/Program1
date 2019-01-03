@@ -217,10 +217,17 @@ namespace CatchOrderList
 
         private void gvInfo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+
+        }
+
+        private void gvInfo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                string orderno = gvInfo.Rows[e.RowIndex].Cells[2].Value.ToString();
-                pageProcess.RedirectUrl(orderno);
+                if (gvInfo.Rows[e.RowIndex].Cells[2].Value == null)
+                    return;
+                string url = "http://kjcx.yundasys.com/kjcx/dbdb.php?dbtxm=" + gvInfo.Rows[e.RowIndex].Cells[2].Value.ToString();
+                System.Diagnostics.Process.Start(url);
             }
         }
     }
