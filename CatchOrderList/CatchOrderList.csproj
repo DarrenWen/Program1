@@ -534,6 +534,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="132.ico" />
+    <Content Include="bin\Release\dbms.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\ooopic_1504752146.ico" />
     <None Include="Resources\bg.png" />
     <None Include="Resources\bg.jpg" />
