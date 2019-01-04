@@ -77,7 +77,7 @@ namespace CatchOrderList
                 {
                     if (item.Cells[2].Value != null && item.Cells[3].Value.ToString() == "--")
                     {
-                        ThreadPool.QueueUserWorkItem(state => pageProcess.ProcessOrderWeight(item.Cells[2].Value.ToString() + "," + item.Cells[1].Value.ToString()));
+                        ThreadPool.QueueUserWorkItem(state => pageProcess.ProcessOrderWeightV1(item.Cells[2].Value.ToString() + "," + item.Cells[1].Value.ToString()));
                     }
                 }
         }

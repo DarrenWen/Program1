@@ -93,6 +93,43 @@ namespace CatchOrderList.data
             }
         }
 
+        public void ProcessOrderWeightV1(string d,bool isBigOrder=false)
+        {
+            string order = d.Split(',')[0];
+            string orderInfo = "";//订单信息
+            string userInfo = "";//收件人信息
+            string replyInfo = "";//留言信息
+            string barCodeInfo = "";//条码扫描信息
+
+            double weight = 0d;
+            try
+            {
+                HtmlProcess(order, ref orderInfo, ref userInfo, ref replyInfo, ref barCodeInfo);
+                orderInfo = B64Decode(orderInfo);
+                userInfo = B64Decode(userInfo);
+                if (order.Substring(0, 1).Trim() != "9")//小包不能大于2公斤
+                {
+                    isBigOrder = false;
+                }
+                weight = QuiciGetWeight(orderInfo, isBigOrder);
+               
+            }
+            catch (Exception ex)
+            {
+
+            }
+            string address = "";
+            string[] userDatas = userInfo.Split(',');
+            if (userDatas.Length > 6)
+            {
+                address = userDatas[5] + userDatas[6];
+            }
+            if (setSigleData != null)
+            {
+                setSigleData(d.Split(',')[1] + "," + weight + "," + GetRepeatPack(order, orderInfo) + "," + address);
+            }
+        }
+
         /// <summary>
         /// 获取快件重量
         /// </summary>
