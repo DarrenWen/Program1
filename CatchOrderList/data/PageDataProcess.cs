@@ -160,11 +160,7 @@ namespace CatchOrderList.data
                 HtmlProcess(order, ref orderInfo, ref userInfo, ref replyInfo, ref barCodeInfo);
                 orderInfo = B64Decode(orderInfo);
                 userInfo = B64Decode(userInfo);
-                if (orderInfo.Length < 10)
-                {
-                    setSigleData(d.Split(',')[1] + "," + "" + "," + "" + "," + "");
-                    return;
-                }
+               
                 if (order.Substring(0, 1).Trim() != "9")//小包不能大于2公斤
                 {
                     isBigOrder = false;
@@ -187,6 +183,11 @@ namespace CatchOrderList.data
             }
             if (setSigleData != null)
             {
+                if (orderInfo.Length < 10)
+                {
+                    setSigleData(d.Split(',')[1] + "," + "0" + "," + GetRepeatPack(order, orderInfo) + "," + address);
+                    return;
+                }
                 setSigleData(d.Split(',')[1] + "," + weight+","+ GetRepeatPack(order,orderInfo)+","+address);
             }
         }

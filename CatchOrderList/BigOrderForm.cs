@@ -313,6 +313,10 @@ namespace CatchOrderList
                     JBDoneProcessWeightCount++;
                     progressBar2.Value = JBDoneProcessWeightCount;
                     var datas = data.Split(',');
+                    if (string.IsNullOrEmpty(datas[1]))
+                    {
+                        return;
+                    }
                     double weight = double.Parse(datas[1]);
                     int myrow = int.Parse(datas[0]) - 1;
                     gvInfo.Rows[myrow].Cells[9].Value = datas[2];
