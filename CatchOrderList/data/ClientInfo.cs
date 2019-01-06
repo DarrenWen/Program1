@@ -94,7 +94,7 @@ namespace CatchOrderList.data
                 }
                 else
                 {
-                    return "尊敬的VIP用户，您现在可以使用系统的所有功能，如有疑问请联系QQ:380891124";
+                    return "尊敬的VIP用户，您现在可以使用系统的所有功能，如有疑问请联系QQ:1686519114";
                 }
             }
         }

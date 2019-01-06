@@ -46,37 +46,49 @@ namespace Express.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into OrderInfo(");
-            strSql.Append("OrderNo,Daterecived,SalesmanID,CustomerID,Tel,Provice,City,Area,Address,Reciver,Remark,Contractor,Contractdate,OState,Merchandiser,UserDate,OperUser,ORState,Paream0,Paream1,Paream2,Paream3,Paream4,Paream5,Paream6,Paream7,Paream8)");
+            strSql.Append("OrderNo,Daterecived,SalesmanID,CustomerID,Tel,Provice,City,Area,Address,Reciver,Remark,Contractor,Contractdate,OState,Merchandiser,UserDate,OperUser,ORState,Paream0,Paream1,Paream2,Paream3,Paream4,Paream5,Paream6,Paream7,Paream8,Paream9,Paream10,Paream11,Paream12,Paream13,Paream14,Paream15,Paream16,Paream17,Paream18,Paream19,Paream20)");
             strSql.Append(" values (");
-            strSql.Append("@OrderNo,@Daterecived,@SalesmanID,@CustomerID,@Tel,@Provice,@City,@Area,@Address,@Reciver,@Remark,@Contractor,@Contractdate,@OState,@Merchandiser,@UserDate,@OperUser,@ORState,@Paream0,@Paream1,@Paream2,@Paream3,@Paream4,@Paream5,@Paream6,@Paream7,@Paream8)");
+            strSql.Append("@OrderNo,@Daterecived,@SalesmanID,@CustomerID,@Tel,@Provice,@City,@Area,@Address,@Reciver,@Remark,@Contractor,@Contractdate,@OState,@Merchandiser,@UserDate,@OperUser,@ORState,@Paream0,@Paream1,@Paream2,@Paream3,@Paream4,@Paream5,@Paream6,@Paream7,@Paream8,@Paream9,@Paream10,@Paream11,@Paream12,@Paream13,@Paream14,@Paream15,@Paream16,@Paream17,@Paream18,@Paream19,@Paream20)");
             OleDbParameter[] parameters = {
-					new OleDbParameter("@OrderNo", OleDbType.VarChar,30),
-					new OleDbParameter("@Daterecived", OleDbType.Date),
-					new OleDbParameter("@SalesmanID", OleDbType.Integer,4),
-					new OleDbParameter("@CustomerID", OleDbType.Integer,4),
-					new OleDbParameter("@Tel", OleDbType.VarChar,30),
-					new OleDbParameter("@Provice", OleDbType.VarChar,30),
-					new OleDbParameter("@City", OleDbType.VarChar,30),
-					new OleDbParameter("@Area", OleDbType.VarChar,30),
-					new OleDbParameter("@Address", OleDbType.VarChar,200),
-					new OleDbParameter("@Reciver", OleDbType.VarChar,10),
-					new OleDbParameter("@Remark", OleDbType.VarChar,100),
-					new OleDbParameter("@Contractor", OleDbType.VarChar,20),
-					new OleDbParameter("@Contractdate", OleDbType.Date),
-					new OleDbParameter("@OState", OleDbType.Integer,4),
-					new OleDbParameter("@Merchandiser", OleDbType.Integer,4),
-					new OleDbParameter("@UserDate", OleDbType.Date),
-					new OleDbParameter("@OperUser", OleDbType.VarChar,20),
-					new OleDbParameter("@ORState", OleDbType.Integer,4),
-					new OleDbParameter("@Paream0", OleDbType.VarChar,255),
-					new OleDbParameter("@Paream1", OleDbType.VarChar,255),
-					new OleDbParameter("@Paream2", OleDbType.VarChar,255),
-					new OleDbParameter("@Paream3", OleDbType.VarChar),
-					new OleDbParameter("@Paream4", OleDbType.VarChar,255),
-					new OleDbParameter("@Paream5", OleDbType.Integer,4),
-					new OleDbParameter("@Paream6", OleDbType.Integer,4),
-					new OleDbParameter("@Paream7", OleDbType.Integer,4),
-					new OleDbParameter("@Paream8", OleDbType.Integer,4)};
+                    new OleDbParameter("@OrderNo", OleDbType.VarChar,30),
+                    new OleDbParameter("@Daterecived", OleDbType.Date),
+                    new OleDbParameter("@SalesmanID", OleDbType.Integer,4),
+                    new OleDbParameter("@CustomerID", OleDbType.Integer,4),
+                    new OleDbParameter("@Tel", OleDbType.VarChar,30),
+                    new OleDbParameter("@Provice", OleDbType.VarChar,30),
+                    new OleDbParameter("@City", OleDbType.VarChar,30),
+                    new OleDbParameter("@Area", OleDbType.VarChar,30),
+                    new OleDbParameter("@Address", OleDbType.VarChar,200),
+                    new OleDbParameter("@Reciver", OleDbType.VarChar,10),
+                    new OleDbParameter("@Remark", OleDbType.VarChar,100),
+                    new OleDbParameter("@Contractor", OleDbType.VarChar,20),
+                    new OleDbParameter("@Contractdate", OleDbType.Date),
+                    new OleDbParameter("@OState", OleDbType.Integer,4),
+                    new OleDbParameter("@Merchandiser", OleDbType.Integer,4),
+                    new OleDbParameter("@UserDate", OleDbType.Date),
+                    new OleDbParameter("@OperUser", OleDbType.VarChar,20),
+                    new OleDbParameter("@ORState", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream0", OleDbType.VarChar,255),
+                    new OleDbParameter("@Paream1", OleDbType.VarChar,255),
+                    new OleDbParameter("@Paream2", OleDbType.VarChar,255),
+                    new OleDbParameter("@Paream3", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream4", OleDbType.VarChar,255),
+                    new OleDbParameter("@Paream5", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream6", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream7", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream8", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream9", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream10", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream11", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream12", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream13", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream14", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream15", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream16", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream17", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream18", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream19", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream20", OleDbType.VarChar,0)};
             parameters[0].Value = model.OrderNo;
             parameters[1].Value = model.Daterecived;
             parameters[2].Value = model.SalesmanID;
@@ -104,6 +116,18 @@ namespace Express.DAL
             parameters[24].Value = model.Paream6;
             parameters[25].Value = model.Paream7;
             parameters[26].Value = model.Paream8;
+            parameters[27].Value = model.Paream9;
+            parameters[28].Value = model.Paream10;
+            parameters[29].Value = model.Paream11;
+            parameters[30].Value = model.Paream12;
+            parameters[31].Value = model.Paream13;
+            parameters[32].Value = model.Paream14;
+            parameters[33].Value = model.Paream15;
+            parameters[34].Value = model.Paream16;
+            parameters[35].Value = model.Paream17;
+            parameters[36].Value = model.Paream18;
+            parameters[37].Value = model.Paream19;
+            parameters[38].Value = model.Paream20;
 
             int rows = DbHelperOleDb.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -148,37 +172,61 @@ namespace Express.DAL
             strSql.Append("Paream5=@Paream5,");
             strSql.Append("Paream6=@Paream6,");
             strSql.Append("Paream7=@Paream7,");
-            strSql.Append("Paream8=@Paream8");
+            strSql.Append("Paream8=@Paream8,");
+            strSql.Append("Paream9=@Paream9,");
+            strSql.Append("Paream10=@Paream10,");
+            strSql.Append("Paream11=@Paream11,");
+            strSql.Append("Paream12=@Paream12,");
+            strSql.Append("Paream13=@Paream13,");
+            strSql.Append("Paream14=@Paream14,");
+            strSql.Append("Paream15=@Paream15,");
+            strSql.Append("Paream16=@Paream16,");
+            strSql.Append("Paream17=@Paream17,");
+            strSql.Append("Paream18=@Paream18,");
+            strSql.Append("Paream19=@Paream19,");
+            strSql.Append("Paream20=@Paream20");
             strSql.Append(" where Id=@Id");
             OleDbParameter[] parameters = {
-					new OleDbParameter("@OrderNo", OleDbType.VarChar,30),
-					new OleDbParameter("@Daterecived", OleDbType.Date),
-					new OleDbParameter("@SalesmanID", OleDbType.Integer),
-					new OleDbParameter("@CustomerID", OleDbType.Integer),
-					new OleDbParameter("@Tel", OleDbType.VarChar,30),
-					new OleDbParameter("@Provice", OleDbType.VarChar,30),
-					new OleDbParameter("@City", OleDbType.VarChar,30),
-					new OleDbParameter("@Area", OleDbType.VarChar,30),
-					new OleDbParameter("@Address", OleDbType.VarChar,200),
-					new OleDbParameter("@Reciver", OleDbType.VarChar,10),
-					new OleDbParameter("@Remark", OleDbType.VarChar,100),
-					new OleDbParameter("@Contractor", OleDbType.VarChar,20),
-					new OleDbParameter("@Contractdate", OleDbType.Date),
-					new OleDbParameter("@OState", OleDbType.Integer),
-					new OleDbParameter("@Merchandiser", OleDbType.Integer),
-					new OleDbParameter("@UserDate", OleDbType.Date),
-					new OleDbParameter("@OperUser", OleDbType.VarChar,20),
-					new OleDbParameter("@ORState", OleDbType.Integer),
-					new OleDbParameter("@Paream0", OleDbType.VarChar,255),
-					new OleDbParameter("@Paream1", OleDbType.VarChar,255),
-					new OleDbParameter("@Paream2", OleDbType.VarChar,255),
-					new OleDbParameter("@Paream3", OleDbType.VarChar),
-					new OleDbParameter("@Paream4", OleDbType.VarChar,255),
-					new OleDbParameter("@Paream5", OleDbType.Integer),
-					new OleDbParameter("@Paream6", OleDbType.Integer),
-					new OleDbParameter("@Paream7", OleDbType.Integer),
-					new OleDbParameter("@Paream8", OleDbType.Integer),
-					new OleDbParameter("@Id", OleDbType.Integer)};
+                    new OleDbParameter("@OrderNo", OleDbType.VarChar,30),
+                    new OleDbParameter("@Daterecived", OleDbType.Date),
+                    new OleDbParameter("@SalesmanID", OleDbType.Integer,4),
+                    new OleDbParameter("@CustomerID", OleDbType.Integer,4),
+                    new OleDbParameter("@Tel", OleDbType.VarChar,30),
+                    new OleDbParameter("@Provice", OleDbType.VarChar,30),
+                    new OleDbParameter("@City", OleDbType.VarChar,30),
+                    new OleDbParameter("@Area", OleDbType.VarChar,30),
+                    new OleDbParameter("@Address", OleDbType.VarChar,200),
+                    new OleDbParameter("@Reciver", OleDbType.VarChar,10),
+                    new OleDbParameter("@Remark", OleDbType.VarChar,100),
+                    new OleDbParameter("@Contractor", OleDbType.VarChar,20),
+                    new OleDbParameter("@Contractdate", OleDbType.Date),
+                    new OleDbParameter("@OState", OleDbType.Integer,4),
+                    new OleDbParameter("@Merchandiser", OleDbType.Integer,4),
+                    new OleDbParameter("@UserDate", OleDbType.Date),
+                    new OleDbParameter("@OperUser", OleDbType.VarChar,20),
+                    new OleDbParameter("@ORState", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream0", OleDbType.VarChar,255),
+                    new OleDbParameter("@Paream1", OleDbType.VarChar,255),
+                    new OleDbParameter("@Paream2", OleDbType.VarChar,255),
+                    new OleDbParameter("@Paream3", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream4", OleDbType.VarChar,255),
+                    new OleDbParameter("@Paream5", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream6", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream7", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream8", OleDbType.Integer,4),
+                    new OleDbParameter("@Paream9", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream10", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream11", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream12", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream13", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream14", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream15", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream16", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream17", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream18", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream19", OleDbType.VarChar,0),
+                    new OleDbParameter("@Paream20", OleDbType.VarChar,0),
+                    new OleDbParameter("@Id", OleDbType.Integer,4)};
             parameters[0].Value = model.OrderNo;
             parameters[1].Value = model.Daterecived;
             parameters[2].Value = model.SalesmanID;
@@ -206,7 +254,19 @@ namespace Express.DAL
             parameters[24].Value = model.Paream6;
             parameters[25].Value = model.Paream7;
             parameters[26].Value = model.Paream8;
-            parameters[27].Value = model.Id;
+            parameters[27].Value = model.Paream9;
+            parameters[28].Value = model.Paream10;
+            parameters[29].Value = model.Paream11;
+            parameters[30].Value = model.Paream12;
+            parameters[31].Value = model.Paream13;
+            parameters[32].Value = model.Paream14;
+            parameters[33].Value = model.Paream15;
+            parameters[34].Value = model.Paream16;
+            parameters[35].Value = model.Paream17;
+            parameters[36].Value = model.Paream18;
+            parameters[37].Value = model.Paream19;
+            parameters[38].Value = model.Paream20;
+            parameters[39].Value = model.Id;
 
             int rows = DbHelperOleDb.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
@@ -361,9 +421,9 @@ namespace Express.DAL
 
 
         /// <summary>
-        /// 得到一个对象实体
-        /// </summary>
-        public Express.Model.OrderInfo DataRowToModel(DataRow row)
+		/// 得到一个对象实体
+		/// </summary>
+		public Express.Model.OrderInfo DataRowToModel(DataRow row)
         {
             Express.Model.OrderInfo model = new Express.Model.OrderInfo();
             if (row != null)
@@ -480,14 +540,62 @@ namespace Express.DAL
                 {
                     model.Paream8 = int.Parse(row["Paream8"].ToString());
                 }
+                if (row["Paream9"] != null)
+                {
+                    model.Paream9 = row["Paream9"].ToString();
+                }
+                if (row["Paream10"] != null)
+                {
+                    model.Paream10 = row["Paream10"].ToString();
+                }
+                if (row["Paream11"] != null)
+                {
+                    model.Paream11 = row["Paream11"].ToString();
+                }
+                if (row["Paream12"] != null)
+                {
+                    model.Paream12 = row["Paream12"].ToString();
+                }
+                if (row["Paream13"] != null)
+                {
+                    model.Paream13 = row["Paream13"].ToString();
+                }
+                if (row["Paream14"] != null)
+                {
+                    model.Paream14 = row["Paream14"].ToString();
+                }
+                if (row["Paream15"] != null)
+                {
+                    model.Paream15 = row["Paream15"].ToString();
+                }
+                if (row["Paream16"] != null)
+                {
+                    model.Paream16 = row["Paream16"].ToString();
+                }
+                if (row["Paream17"] != null)
+                {
+                    model.Paream17 = row["Paream17"].ToString();
+                }
+                if (row["Paream18"] != null)
+                {
+                    model.Paream18 = row["Paream18"].ToString();
+                }
+                if (row["Paream19"] != null)
+                {
+                    model.Paream19 = row["Paream19"].ToString();
+                }
+                if (row["Paream20"] != null)
+                {
+                    model.Paream20 = row["Paream20"].ToString();
+                }
             }
             return model;
         }
 
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public DataSet GetList(string strWhere)
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select * ");

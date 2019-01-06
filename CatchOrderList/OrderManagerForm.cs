@@ -14,7 +14,7 @@ namespace CatchOrderList
 {
     public partial class OrderManagerForm : Form
     {
-        private OrderManagerForm()
+        public OrderManagerForm()
         {
             InitializeComponent();
         }
@@ -260,6 +260,14 @@ namespace CatchOrderList
                 gvInfo.Rows[rowCount].Cells[21].Value = item["Paream4"];//揽件员
                 gvInfo.Rows[rowCount].Cells[22].Value = item["Paream6"].ToString()=="1"?"是":"否";//是否退回件
                 gvInfo.Rows[rowCount].Cells[23].Value = string.IsNullOrEmpty(item["Paream7"].ToString()) ?0: int.Parse(item["Paream7"].ToString()) * 1d / 100d;//快件重量;
+                gvInfo.Rows[rowCount].Cells[24].Value = item["Paream15"].ToString();
+                gvInfo.Rows[rowCount].Cells[25].Value = item["Paream13"].ToString();
+                gvInfo.Rows[rowCount].Cells[26].Value = item["Paream14"].ToString();
+                gvInfo.Rows[rowCount].Cells[27].Value = item["Paream0"].ToString();
+                gvInfo.Rows[rowCount].Cells[28].Value = item["Paream9"].ToString();
+                gvInfo.Rows[rowCount].Cells[29].Value = item["Paream10"].ToString();
+                gvInfo.Rows[rowCount].Cells[30].Value = item["Paream11"].ToString();
+                gvInfo.Rows[rowCount].Cells[31].Value = item["Paream12"].ToString();
                 rowCount++;
             }
         }

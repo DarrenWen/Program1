@@ -93,6 +93,54 @@ namespace CatchOrderList.data
             }
         }
 
+
+        /// <summary>
+        /// 获取快件重量
+        /// </summary>
+        /// <param name="orderNo"></param>
+        /// <returns></returns>
+        public void ProcessOrderWeightV1(string d, bool isBigOrder = false)
+        {
+            string order = d.Split(',')[0];
+            string orderInfo = "";//订单信息
+            string userInfo = "";//收件人信息
+            string replyInfo = "";//留言信息
+            string barCodeInfo = "";//条码扫描信息
+
+            double weight = 0d;
+            try
+            {
+                HtmlProcess(order, ref orderInfo, ref userInfo, ref replyInfo, ref barCodeInfo);
+                orderInfo = B64Decode(orderInfo);
+                userInfo = B64Decode(userInfo);
+                if (orderInfo.Length < 10)
+                {
+                    setSigleData(d.Split(',')[1] + "," + "" + "," + "" + "," + "");
+                    return;
+                }
+                if (order.Substring(0, 1).Trim() != "9")//小包不能大于2公斤
+                {
+                    isBigOrder = false;
+                }
+                weight = QuiciGetWeight(orderInfo, isBigOrder);
+               
+            }
+            catch (Exception ex)
+            {
+
+            }
+            string address = "";
+            string[] userDatas = userInfo.Split(',');
+            if (userDatas.Length > 6)
+            {
+                address = userDatas[5] +":"+ userDatas[6]+":"+userDatas[7];
+            }
+            if (setSigleData != null)
+            {
+                setSigleData(d.Split(',')[1] + "," + weight + "," + GetRepeatPack(order, orderInfo) + "," + address);
+            }
+        }
+
         /// <summary>
         /// 获取快件重量
         /// </summary>
@@ -112,12 +160,17 @@ namespace CatchOrderList.data
                 HtmlProcess(order, ref orderInfo, ref userInfo, ref replyInfo, ref barCodeInfo);
                 orderInfo = B64Decode(orderInfo);
                 userInfo = B64Decode(userInfo);
+                if (orderInfo.Length < 10)
+                {
+                    setSigleData(d.Split(',')[1] + "," + "" + "," + "" + "," + "");
+                    return;
+                }
                 if (order.Substring(0, 1).Trim() != "9")//小包不能大于2公斤
                 {
                     isBigOrder = false;
                 }
-                    weight = GetWeight(orderInfo,isBigOrder);
-                if (order.Substring(0, 1).Trim() != "9" && weight>2)//小包不能大于2公斤
+                    weight = QuiciGetWeight(orderInfo,isBigOrder);
+                if (order.Substring(0, 1).Trim() != "9" && weight > 2)//小包不能大于2公斤
                 {
                     weight = 0;
                 }
@@ -165,6 +218,12 @@ namespace CatchOrderList.data
             {
 
             }
+
+            if (orderInfo.Length<10)
+            {
+                GetBigOrderInfo(d.Split(',')[1] + "," + "" + "," + ""+ "," + "");
+            }
+
             string address = "";
             string[] userDatas = userInfo.Split(',');
             if (userDatas.Length > 6)
@@ -478,7 +537,11 @@ namespace CatchOrderList.data
                 nowOrder.Merchandiser = OrderState(orderInfo, ref layoutDays);
                 nowOrder.Paream8 = (int)(layoutDays * 100);
                 nowOrder.Paream1 = GetCompCode(orderInfo);//作为揽件扫描编码
+                
+
+
                 nowOrder.Paream3 = replyInfo;//保存留言信息
+                
                 nowOrder.Paream6 = GetReturnState(orderInfo);
                 var weight = QuiciGetWeight(orderInfo);
                 //if (order.Substring(0, 1).Trim() != "9" && weight > 2)//小包不能大于2公斤
@@ -491,7 +554,35 @@ namespace CatchOrderList.data
 
 
                 nowOrder.Paream0 = GetBarCodeInfo(barCodeInfo,2);
-                nowOrder.Paream2 = GetBarCodeInfo(barCodeInfo, 4);
+                if (nowOrder.Paream0.Contains("("))
+                {
+                    nowOrder.Paream0 = nowOrder.Paream0.Substring(0,nowOrder.Paream0.IndexOf("("));
+                }
+                nowOrder.Paream9 = GetBarCodeInfo(barCodeInfo, 4);
+                if (!string.IsNullOrEmpty(nowOrder.Paream9) && nowOrder.Paream9.Contains(" "))
+                {
+                    string[] thredInfo = nowOrder.Paream9.Split(' ');
+                    nowOrder.Paream10 = thredInfo[0];//三段码信息
+                    if (thredInfo.Length > 2)
+                       nowOrder.Paream11 = thredInfo[2];//三段码信息
+                    if (thredInfo.Length > 4)
+                        nowOrder.Paream12 = thredInfo[4];//三段码信息
+                }
+
+                string p13 = GetBarCodeInfo(barCodeInfo, 1);
+                if (p13.Contains("("))
+                {
+                    nowOrder.Paream13 = p13.Substring(0,p13.IndexOf("("));//所属分部
+                }
+                if (p13.Contains(")"))
+                {
+                    nowOrder.Paream14 = p13.Substring(p13.IndexOf(")")+2,6);//分部编码
+                }
+
+                string[] userDatas = userInfo.Split(',');
+
+                nowOrder.Paream15 = userDatas[14].Replace(";", "");//订单来源
+
 
                 //20170911取消该功能
                 //nowOrder.Paream4 = GetSameCity(orderInfo, ref layoutDays).ToString() + GetJiBaoError(orderInfo, ref layoutDays) + GetDiffFengBu(orderInfo, ref layoutDays) + GetDiffComp(orderInfo, ref layoutDays);

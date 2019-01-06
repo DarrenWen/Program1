@@ -103,13 +103,13 @@ namespace CatchOrderList
                     gvInfo.Rows[m.Id].Cells[22].Value = m.Paream6.ToString() == "1" ? "是" : "否";//是否退回件;
                     gvInfo.Rows[m.Id].Cells[23].Value = m.Paream7.Value*1d/100d;//快件重量;
                     gvInfo.Rows[m.Id].Cells[24].Value = m.Paream0;//条码信息
-                    gvInfo.Rows[m.Id].Cells[25].Value = m.Paream2;//三段码信息
-                    string[] thredInfo = m.Paream2.Split(' ');
-                    gvInfo.Rows[m.Id].Cells[26].Value = thredInfo[0];//三段码信息
-                    if(thredInfo.Length>2)
-                    gvInfo.Rows[m.Id].Cells[27].Value = thredInfo[2];//三段码信息
-                    if (thredInfo.Length >4 )
-                        gvInfo.Rows[m.Id].Cells[28].Value = thredInfo[4];//三段码信息
+                    gvInfo.Rows[m.Id].Cells[25].Value = m.Paream9;//三段码信息
+                    gvInfo.Rows[m.Id].Cells[26].Value = m.Paream10;//三段码信息
+                    gvInfo.Rows[m.Id].Cells[27].Value = m.Paream11;//三段码信息
+                    gvInfo.Rows[m.Id].Cells[28].Value = m.Paream12;//三段码信息
+                    gvInfo.Rows[m.Id].Cells[29].Value = m.Paream15;
+                    gvInfo.Rows[m.Id].Cells[30].Value = m.Paream13;
+                    gvInfo.Rows[m.Id].Cells[31].Value = m.Paream14;
                 }
             }
         }

@@ -66,6 +66,9 @@
             this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -136,7 +139,10 @@
             this.Column26,
             this.Column27,
             this.Column28,
-            this.Column29});
+            this.Column29,
+            this.Column30,
+            this.Column31,
+            this.Column32});
             this.gvInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.gvInfo.Location = new System.Drawing.Point(0, 25);
@@ -352,6 +358,21 @@
             this.Column29.HeaderText = "分部";
             this.Column29.Name = "Column29";
             // 
+            // Column30
+            // 
+            this.Column30.HeaderText = "订单来源";
+            this.Column30.Name = "Column30";
+            // 
+            // Column31
+            // 
+            this.Column31.HeaderText = "所属分部";
+            this.Column31.Name = "Column31";
+            // 
+            // Column32
+            // 
+            this.Column32.HeaderText = "分部编码";
+            this.Column32.Name = "Column32";
+            // 
             // QuickSearchOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -414,5 +435,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column28;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column32;
     }
 }

@@ -38,6 +38,18 @@ namespace Express.Model
         private int? _paream6;
         private int? _paream7;
         private int? _paream8;
+        private string _paream9;
+        private string _paream10;
+        private string _paream11;
+        private string _paream12;
+        private string _paream13;
+        private string _paream14;
+        private string _paream15;
+        private string _paream16;
+        private string _paream17;
+        private string _paream18;
+        private string _paream19;
+        private string _paream20;
         private string _newcontractdate;
         private string _ostatename;
         private string _orstatename;
@@ -266,6 +278,102 @@ namespace Express.Model
         {
             set { _paream8 = value; }
             get { return _paream8; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream9
+        {
+            set { _paream9 = value; }
+            get { return _paream9; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream10
+        {
+            set { _paream10 = value; }
+            get { return _paream10; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream11
+        {
+            set { _paream11 = value; }
+            get { return _paream11; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream12
+        {
+            set { _paream12 = value; }
+            get { return _paream12; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream13
+        {
+            set { _paream13 = value; }
+            get { return _paream13; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream14
+        {
+            set { _paream14 = value; }
+            get { return _paream14; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream15
+        {
+            set { _paream15 = value; }
+            get { return _paream15; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream16
+        {
+            set { _paream16 = value; }
+            get { return _paream16; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream17
+        {
+            set { _paream17 = value; }
+            get { return _paream17; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream18
+        {
+            set { _paream18 = value; }
+            get { return _paream18; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream19
+        {
+            set { _paream19 = value; }
+            get { return _paream19; }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Paream20
+        {
+            set { _paream20 = value; }
+            get { return _paream20; }
         }
         /// <summary>
         /// 

@@ -34,7 +34,7 @@ namespace CatchOrderList
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderManagerForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cbnoWeight = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -90,6 +90,14 @@ namespace CatchOrderList
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsShowInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.tsmiUpdate = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUpdateDate = new System.Windows.Forms.ToolStripMenuItem();
@@ -496,21 +504,29 @@ namespace CatchOrderList
             this.Column21,
             this.Column22,
             this.Column23,
-            this.Column24});
+            this.Column24,
+            this.Column32,
+            this.Column30,
+            this.Column31,
+            this.Column25,
+            this.Column26,
+            this.Column27,
+            this.Column28,
+            this.Column29});
             this.gvInfo.ContextMenuStrip = this.cmsShowInfo;
             this.gvInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.gvInfo.Location = new System.Drawing.Point(0, 0);
             this.gvInfo.Name = "gvInfo";
             this.gvInfo.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gvInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gvInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gvInfo.RowTemplate.Height = 23;
             this.gvInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.gvInfo.ShowCellErrors = false;
@@ -625,18 +641,21 @@ namespace CatchOrderList
             this.Column17.HeaderText = "签收人";
             this.Column17.Name = "Column17";
             this.Column17.ReadOnly = true;
+            this.Column17.Visible = false;
             // 
             // Column18
             // 
             this.Column18.HeaderText = "催单状态";
             this.Column18.Name = "Column18";
             this.Column18.ReadOnly = true;
+            this.Column18.Visible = false;
             // 
             // Column19
             // 
             this.Column19.HeaderText = "揽件公司编码";
             this.Column19.Name = "Column19";
             this.Column19.ReadOnly = true;
+            this.Column19.Visible = false;
             // 
             // Column20
             // 
@@ -655,6 +674,7 @@ namespace CatchOrderList
             this.Column22.HeaderText = "揽件人员";
             this.Column22.Name = "Column22";
             this.Column22.ReadOnly = true;
+            this.Column22.Visible = false;
             // 
             // Column23
             // 
@@ -667,6 +687,54 @@ namespace CatchOrderList
             this.Column24.HeaderText = "重量";
             this.Column24.Name = "Column24";
             this.Column24.ReadOnly = true;
+            // 
+            // Column32
+            // 
+            this.Column32.HeaderText = "订单来源";
+            this.Column32.Name = "Column32";
+            this.Column32.ReadOnly = true;
+            // 
+            // Column30
+            // 
+            this.Column30.HeaderText = "所属分部";
+            this.Column30.Name = "Column30";
+            this.Column30.ReadOnly = true;
+            // 
+            // Column31
+            // 
+            this.Column31.HeaderText = "分部编码";
+            this.Column31.Name = "Column31";
+            this.Column31.ReadOnly = true;
+            // 
+            // Column25
+            // 
+            this.Column25.HeaderText = "分配给的客户";
+            this.Column25.Name = "Column25";
+            this.Column25.ReadOnly = true;
+            // 
+            // Column26
+            // 
+            this.Column26.HeaderText = "三段码信息";
+            this.Column26.Name = "Column26";
+            this.Column26.ReadOnly = true;
+            // 
+            // Column27
+            // 
+            this.Column27.HeaderText = "分拨中心";
+            this.Column27.Name = "Column27";
+            this.Column27.ReadOnly = true;
+            // 
+            // Column28
+            // 
+            this.Column28.HeaderText = "公司";
+            this.Column28.Name = "Column28";
+            this.Column28.ReadOnly = true;
+            // 
+            // Column29
+            // 
+            this.Column29.HeaderText = "分部";
+            this.Column29.Name = "Column29";
+            this.Column29.ReadOnly = true;
             // 
             // cmsShowInfo
             // 
@@ -681,42 +749,46 @@ namespace CatchOrderList
             this.tsmiMSG,
             this.tsmiopenimage});
             this.cmsShowInfo.Name = "contextMenuStrip1";
-            this.cmsShowInfo.Size = new System.Drawing.Size(141, 276);
+            this.cmsShowInfo.Size = new System.Drawing.Size(125, 164);
             // 
             // tsmiUpdate
             // 
             this.tsmiUpdate.Image = global::CatchOrderList.Properties.Resources.pf;
+            this.tsmiUpdate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiUpdate.Name = "tsmiUpdate";
-            this.tsmiUpdate.Size = new System.Drawing.Size(140, 38);
+            this.tsmiUpdate.Size = new System.Drawing.Size(124, 22);
             this.tsmiUpdate.Text = "修改客户";
             this.tsmiUpdate.Click += new System.EventHandler(this.tsmiUpdate_Click);
             // 
             // tsmiUpdateDate
             // 
             this.tsmiUpdateDate.Image = global::CatchOrderList.Properties.Resources.design;
+            this.tsmiUpdateDate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiUpdateDate.Name = "tsmiUpdateDate";
-            this.tsmiUpdateDate.Size = new System.Drawing.Size(140, 38);
+            this.tsmiUpdateDate.Size = new System.Drawing.Size(124, 22);
             this.tsmiUpdateDate.Text = "修改日期";
             this.tsmiUpdateDate.Click += new System.EventHandler(this.tsmiUpdateDate_Click);
             // 
             // tsmiDel
             // 
             this.tsmiDel.Image = global::CatchOrderList.Properties.Resources.wrong;
+            this.tsmiDel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiDel.Name = "tsmiDel";
-            this.tsmiDel.Size = new System.Drawing.Size(140, 38);
+            this.tsmiDel.Size = new System.Drawing.Size(124, 22);
             this.tsmiDel.Text = "删除单号";
             this.tsmiDel.Click += new System.EventHandler(this.tsmiDel_Click);
             // 
             // ddToolStripMenuItem
             // 
             this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(137, 6);
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(121, 6);
             // 
             // tsmiAddRemark
             // 
             this.tsmiAddRemark.Image = global::CatchOrderList.Properties.Resources.columns;
+            this.tsmiAddRemark.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiAddRemark.Name = "tsmiAddRemark";
-            this.tsmiAddRemark.Size = new System.Drawing.Size(140, 38);
+            this.tsmiAddRemark.Size = new System.Drawing.Size(124, 22);
             this.tsmiAddRemark.Text = "添加备注";
             this.tsmiAddRemark.Click += new System.EventHandler(this.tsmiAddRemark_Click);
             // 
@@ -726,14 +798,16 @@ namespace CatchOrderList
             this.tsmicopyorderno,
             this.tsmicopyaddress});
             this.复制ToolStripMenuItem.Image = global::CatchOrderList.Properties.Resources.doc2;
+            this.复制ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(140, 38);
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.复制ToolStripMenuItem.Text = "复制";
             this.复制ToolStripMenuItem.Visible = false;
             // 
             // tsmicopyorderno
             // 
             this.tsmicopyorderno.Image = global::CatchOrderList.Properties.Resources.square_blueS;
+            this.tsmicopyorderno.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmicopyorderno.Name = "tsmicopyorderno";
             this.tsmicopyorderno.Size = new System.Drawing.Size(100, 22);
             this.tsmicopyorderno.Text = "单号";
@@ -742,6 +816,7 @@ namespace CatchOrderList
             // tsmicopyaddress
             // 
             this.tsmicopyaddress.Image = global::CatchOrderList.Properties.Resources.square_blueS;
+            this.tsmicopyaddress.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmicopyaddress.Name = "tsmicopyaddress";
             this.tsmicopyaddress.Size = new System.Drawing.Size(100, 22);
             this.tsmicopyaddress.Text = "地址";
@@ -750,16 +825,18 @@ namespace CatchOrderList
             // tsmiMSG
             // 
             this.tsmiMSG.Image = global::CatchOrderList.Properties.Resources.comment;
+            this.tsmiMSG.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiMSG.Name = "tsmiMSG";
-            this.tsmiMSG.Size = new System.Drawing.Size(140, 38);
+            this.tsmiMSG.Size = new System.Drawing.Size(124, 22);
             this.tsmiMSG.Text = "留言信息";
             this.tsmiMSG.Click += new System.EventHandler(this.tsmiMSG_Click);
             // 
             // tsmiopenimage
             // 
             this.tsmiopenimage.Image = global::CatchOrderList.Properties.Resources.folderopen;
+            this.tsmiopenimage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsmiopenimage.Name = "tsmiopenimage";
-            this.tsmiopenimage.Size = new System.Drawing.Size(140, 38);
+            this.tsmiopenimage.Size = new System.Drawing.Size(124, 22);
             this.tsmiopenimage.Text = "单号图片";
             this.tsmiopenimage.Click += new System.EventHandler(this.tsmiopenimage_Click);
             // 
@@ -885,6 +962,7 @@ namespace CatchOrderList
         private System.Windows.Forms.CheckBox cbReturn;
         private System.Windows.Forms.Button button1;
         private WinFormPager anpageinfo;
+        private System.Windows.Forms.CheckBox cbnoWeight;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -909,6 +987,13 @@ namespace CatchOrderList
         private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
-        private System.Windows.Forms.CheckBox cbnoWeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column29;
     }
 }

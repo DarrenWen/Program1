@@ -27,6 +27,11 @@ namespace CatchOrderList
                     int myrow = int.Parse(datas[0]) - 1;
                     gvInfo.Rows[myrow].Cells[3].Value = weight < 0  ? 0 : weight;
                     gvInfo.Rows[myrow].Cells[4].Value = datas[3];
+                    var addressdts = datas[3].Split(':');
+                    gvInfo.Rows[myrow].Cells[5].Value = addressdts[0];
+                    gvInfo.Rows[myrow].Cells[6].Value = addressdts[1];
+                    gvInfo.Rows[myrow].Cells[7].Value = addressdts[2];
+                    
                 }
                 catch (Exception ex)
                 {
@@ -77,7 +82,7 @@ namespace CatchOrderList
                 {
                     if (item.Cells[2].Value != null && item.Cells[3].Value.ToString() == "--")
                     {
-                        ThreadPool.QueueUserWorkItem(state => pageProcess.ProcessOrderWeight(item.Cells[2].Value.ToString() + "," + item.Cells[1].Value.ToString()));
+                        ThreadPool.QueueUserWorkItem(state => pageProcess.ProcessOrderWeightV1(item.Cells[2].Value.ToString() + "," + item.Cells[1].Value.ToString()));
                     }
                 }
         }
@@ -224,10 +229,8 @@ namespace CatchOrderList
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                if (gvInfo.Rows[e.RowIndex].Cells[2].Value == null)
-                    return;
-                string url = "http://kjcx.yundasys.com/kjcx/dbdb.php?dbtxm=" + gvInfo.Rows[e.RowIndex].Cells[2].Value.ToString();
-                System.Diagnostics.Process.Start(url);
+                string orderno = gvInfo.Rows[e.RowIndex].Cells[2].Value.ToString();
+                pageProcess.RedirectUrl(orderno);
             }
         }
     }

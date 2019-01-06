@@ -177,10 +177,8 @@ namespace CatchOrderList
         {
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                if (gvInfo.Rows[e.RowIndex].Cells[2].Value == null)
-                    return;
-                string url = "http://kjcx.yundasys.com/kjcx/dbdb.php?dbtxm=" + gvInfo.Rows[e.RowIndex].Cells[2].Value.ToString();
-                System.Diagnostics.Process.Start(url);
+                string orderno = gvInfo.Rows[e.RowIndex].Cells[2].Value.ToString();
+                pageProcess.RedirectUrl(orderno);
             }
         }
     }

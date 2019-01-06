@@ -161,6 +161,54 @@ namespace Express.DAL
                 {
                     model.Paream8 = int.Parse(row["Paream8"].ToString());
                 }
+                if (row["Paream9"] != null)
+                {
+                    model.Paream9 = row["Paream9"].ToString();
+                }
+                if (row["Paream10"] != null)
+                {
+                    model.Paream10 = row["Paream10"].ToString();
+                }
+                if (row["Paream11"] != null)
+                {
+                    model.Paream11 = row["Paream11"].ToString();
+                }
+                if (row["Paream12"] != null)
+                {
+                    model.Paream12 = row["Paream12"].ToString();
+                }
+                if (row["Paream13"] != null)
+                {
+                    model.Paream13 = row["Paream13"].ToString();
+                }
+                if (row["Paream14"] != null)
+                {
+                    model.Paream14 = row["Paream14"].ToString();
+                }
+                if (row["Paream15"] != null)
+                {
+                    model.Paream15 = row["Paream15"].ToString();
+                }
+                if (row["Paream16"] != null)
+                {
+                    model.Paream16 = row["Paream16"].ToString();
+                }
+                if (row["Paream17"] != null)
+                {
+                    model.Paream17 = row["Paream17"].ToString();
+                }
+                if (row["Paream18"] != null)
+                {
+                    model.Paream18 = row["Paream18"].ToString();
+                }
+                if (row["Paream19"] != null)
+                {
+                    model.Paream19 = row["Paream19"].ToString();
+                }
+                if (row["Paream20"] != null)
+                {
+                    model.Paream20 = row["Paream20"].ToString();
+                }
                 if (row["NewContractdate"] != null)
                 {
                     model.NewContractdate = row["NewContractdate"].ToString();
