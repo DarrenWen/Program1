@@ -69,6 +69,8 @@
             this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -142,7 +144,9 @@
             this.Column29,
             this.Column30,
             this.Column31,
-            this.Column32});
+            this.Column32,
+            this.Column33,
+            this.Column34});
             this.gvInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gvInfo.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.gvInfo.Location = new System.Drawing.Point(0, 25);
@@ -373,6 +377,16 @@
             this.Column32.HeaderText = "分部编码";
             this.Column32.Name = "Column32";
             // 
+            // Column33
+            // 
+            this.Column33.HeaderText = "分拨中心编号";
+            this.Column33.Name = "Column33";
+            // 
+            // Column34
+            // 
+            this.Column34.HeaderText = "公司编号";
+            this.Column34.Name = "Column34";
+            // 
             // QuickSearchOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -438,5 +452,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column30;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column31;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column32;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column33;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column34;
     }
 }

@@ -110,6 +110,15 @@ namespace CatchOrderList
                     gvInfo.Rows[m.Id].Cells[29].Value = m.Paream15;
                     gvInfo.Rows[m.Id].Cells[30].Value = m.Paream13;
                     gvInfo.Rows[m.Id].Cells[31].Value = m.Paream14;
+
+                    if (m.Paream10.Contains("("))
+                    {
+                        gvInfo.Rows[m.Id].Cells[32].Value = m.Paream10.Substring(0,m.Paream10.IndexOf("("));
+                    }
+                    if (m.Paream11.Contains("("))
+                    {
+                        gvInfo.Rows[m.Id].Cells[33].Value = m.Paream11.Substring(0, m.Paream11.IndexOf("("));
+                    }
                 }
             }
         }

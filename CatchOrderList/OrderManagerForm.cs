@@ -268,6 +268,16 @@ namespace CatchOrderList
                 gvInfo.Rows[rowCount].Cells[29].Value = item["Paream10"].ToString();
                 gvInfo.Rows[rowCount].Cells[30].Value = item["Paream11"].ToString();
                 gvInfo.Rows[rowCount].Cells[31].Value = item["Paream12"].ToString();
+
+                if (item["Paream10"].ToString().Contains("("))
+                {
+                    gvInfo.Rows[rowCount].Cells[32].Value = item["Paream10"].ToString().Substring(0, item["Paream10"].ToString().IndexOf("("));
+                }
+                if (item["Paream11"].ToString().Contains("("))
+                {
+                    gvInfo.Rows[rowCount].Cells[33].Value = item["Paream11"].ToString().Substring(0, item["Paream11"].ToString().IndexOf("("));
+                }
+
                 rowCount++;
             }
         }
@@ -789,9 +799,10 @@ namespace CatchOrderList
 
         private void btnExport_Click(object sender, EventArgs e)
         {
-            DataTable dt = ReportData;
-            if (null != dt)
-                new DataToExcel().DataExcel(dt, "", "收件报表", ReportTitle);
+            //DataTable dt = ReportData;
+            //if (null != dt)
+            //    new DataToExcel().DataExcel(dt, "", "收件报表", ReportTitle);
+            ExportManager.ExportDataGridViewToExcel(gvInfo, "收件单号查询");
         }
 
         #region 订单报表

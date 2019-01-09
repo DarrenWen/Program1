@@ -580,9 +580,10 @@ namespace CatchOrderList.data
                     nowOrder.Paream14 = p13.Substring(p13.IndexOf(")")+2,6);//分部编码
                 }
 
-                string[] userDatas = userInfo.Split(',');
+                string[] rowDatas = userInfo.Split(';');
+                string[] userDatas = rowDatas[rowDatas.Length-2].Split(',');//取最后一条数据为数据来源
 
-                nowOrder.Paream15 = userDatas[14].Replace(";", "");//订单来源
+                nowOrder.Paream15 = userDatas[14];//订单来源
 
 
                 //20170911取消该功能
