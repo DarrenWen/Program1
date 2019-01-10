@@ -14,7 +14,7 @@ namespace CatchOrderList
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuickSearchOrder()); 
+            Application.Run(new MainForm()); 
         }
     }
 }

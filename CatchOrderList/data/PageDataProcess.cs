@@ -580,11 +580,13 @@ namespace CatchOrderList.data
                     nowOrder.Paream14 = p13.Substring(p13.IndexOf(")")+2,6);//分部编码
                 }
 
-                string[] rowDatas = userInfo.Split(';');
-                string[] userDatas = rowDatas[rowDatas.Length-2].Split(',');//取最后一条数据为数据来源
+                if (!string.IsNullOrEmpty(userInfo) && userInfo.Contains(";"))
+                {
+                    string[] rowDatas = userInfo.Split(';');
+                    string[] userDatas = rowDatas[rowDatas.Length - 2].Split(',');//取最后一条数据为数据来源
 
-                nowOrder.Paream15 = userDatas[14];//订单来源
-
+                    nowOrder.Paream15 = userDatas[14];//订单来源
+                }
 
                 //20170911取消该功能
                 //nowOrder.Paream4 = GetSameCity(orderInfo, ref layoutDays).ToString() + GetJiBaoError(orderInfo, ref layoutDays) + GetDiffFengBu(orderInfo, ref layoutDays) + GetDiffComp(orderInfo, ref layoutDays);
