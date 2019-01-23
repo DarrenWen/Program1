@@ -425,7 +425,7 @@
             // 
             this.npage.Location = new System.Drawing.Point(87, 9);
             this.npage.Maximum = new decimal(new int[] {
-            5000,
+            500000,
             0,
             0,
             0});
