@@ -1399,22 +1399,25 @@ namespace CatchOrderList.data
                     hnc = htmldoc.DocumentNode.SelectNodes("//script");
                     if (hnc!=null&&hnc.Count > 0)
                     {
-                        string jsdata = hnc[hnc.Count-2].InnerText;
-
-                        if (jsdata.IndexOf("var g_ssm=") != -1 && jsdata.IndexOf("var g_sld=") != -1)
+                        for (int i = 0; i < hnc.Count; i++)
                         {
-                            //快件信息
-                            orderdata = jsdata;
-                            orderdata = orderdata.Substring(orderdata.IndexOf("var g_ssm=") + 11);
-                            orderdata = orderdata.Substring(0, orderdata.IndexOf('"'));
+                            string jsdata = hnc[i].InnerText;
+                            if (jsdata.IndexOf("var g_ssm=") != -1 && jsdata.IndexOf("var g_sld=") != -1)
+                            {
+                                //快件信息
+                                orderdata = jsdata;
+                                orderdata = orderdata.Substring(orderdata.IndexOf("var g_ssm=") + 11);
+                                orderdata = orderdata.Substring(0, orderdata.IndexOf('"'));
 
-                            userdata = jsdata;//收件人信息
-                            userdata = userdata.Substring(userdata.IndexOf("var g_sld=") + 11);
-                            userdata = userdata.Substring(0, userdata.IndexOf('"'));
+                                userdata = jsdata;//收件人信息
+                                userdata = userdata.Substring(userdata.IndexOf("var g_sld=") + 11);
+                                userdata = userdata.Substring(0, userdata.IndexOf('"'));
 
-                            replydata = httpHelper.Get(url3 + order + "&s=" + new Random().Next());//留言信息
+                                replydata = httpHelper.Get(url3 + order + "&s=" + new Random().Next());//留言信息
 
-                            barCodeInfo = httpHelper.Get(url4 + order + "&s=" + new Random().Next());//条码分配信息
+                                barCodeInfo = httpHelper.Get(url4 + order + "&s=" + new Random().Next());//条码分配信息
+                                break;
+                            }
                         }
                     }
                 }

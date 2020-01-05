@@ -66,21 +66,6 @@ namespace CatchOrderList
             this.tvCustomer = new System.Windows.Forms.TreeView();
             this.ilInfo = new System.Windows.Forms.ImageList(this.components);
             this.gvInfo = new System.Windows.Forms.DataGridView();
-            this.cmsShowInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tsmiUpdate = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiUpdateDate = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiDel = new System.Windows.Forms.ToolStripMenuItem();
-            this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiAddRemark = new System.Windows.Forms.ToolStripMenuItem();
-            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmicopyorderno = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmicopyaddress = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiMSG = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiopenimage = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.lblTip = new System.Windows.Forms.Label();
-            this.pbTotal = new System.Windows.Forms.ProgressBar();
-            this.anpageinfo = new Tony.Controls.Winform.WinFormPager();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -115,6 +100,21 @@ namespace CatchOrderList
             this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsShowInfo = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tsmiUpdate = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiUpdateDate = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDel = new System.Windows.Forms.ToolStripMenuItem();
+            this.ddToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiAddRemark = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmicopyorderno = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmicopyaddress = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiMSG = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiopenimage = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.lblTip = new System.Windows.Forms.Label();
+            this.pbTotal = new System.Windows.Forms.ProgressBar();
+            this.anpageinfo = new Tony.Controls.Winform.WinFormPager();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -539,157 +539,6 @@ namespace CatchOrderList
             this.gvInfo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvInfo_CellContentDoubleClick);
             this.gvInfo.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.gvInfo_CellMouseDown);
             // 
-            // cmsShowInfo
-            // 
-            this.cmsShowInfo.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.cmsShowInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiUpdate,
-            this.tsmiUpdateDate,
-            this.tsmiDel,
-            this.ddToolStripMenuItem,
-            this.tsmiAddRemark,
-            this.复制ToolStripMenuItem,
-            this.tsmiMSG,
-            this.tsmiopenimage});
-            this.cmsShowInfo.Name = "contextMenuStrip1";
-            this.cmsShowInfo.Size = new System.Drawing.Size(125, 164);
-            // 
-            // tsmiUpdate
-            // 
-            this.tsmiUpdate.Image = global::CatchOrderList.Properties.Resources.pf;
-            this.tsmiUpdate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiUpdate.Name = "tsmiUpdate";
-            this.tsmiUpdate.Size = new System.Drawing.Size(124, 22);
-            this.tsmiUpdate.Text = "修改客户";
-            this.tsmiUpdate.Click += new System.EventHandler(this.tsmiUpdate_Click);
-            // 
-            // tsmiUpdateDate
-            // 
-            this.tsmiUpdateDate.Image = global::CatchOrderList.Properties.Resources.design;
-            this.tsmiUpdateDate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiUpdateDate.Name = "tsmiUpdateDate";
-            this.tsmiUpdateDate.Size = new System.Drawing.Size(124, 22);
-            this.tsmiUpdateDate.Text = "修改日期";
-            this.tsmiUpdateDate.Click += new System.EventHandler(this.tsmiUpdateDate_Click);
-            // 
-            // tsmiDel
-            // 
-            this.tsmiDel.Image = global::CatchOrderList.Properties.Resources.wrong;
-            this.tsmiDel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiDel.Name = "tsmiDel";
-            this.tsmiDel.Size = new System.Drawing.Size(124, 22);
-            this.tsmiDel.Text = "删除单号";
-            this.tsmiDel.Click += new System.EventHandler(this.tsmiDel_Click);
-            // 
-            // ddToolStripMenuItem
-            // 
-            this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
-            this.ddToolStripMenuItem.Size = new System.Drawing.Size(121, 6);
-            // 
-            // tsmiAddRemark
-            // 
-            this.tsmiAddRemark.Image = global::CatchOrderList.Properties.Resources.columns;
-            this.tsmiAddRemark.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiAddRemark.Name = "tsmiAddRemark";
-            this.tsmiAddRemark.Size = new System.Drawing.Size(124, 22);
-            this.tsmiAddRemark.Text = "添加备注";
-            this.tsmiAddRemark.Click += new System.EventHandler(this.tsmiAddRemark_Click);
-            // 
-            // 复制ToolStripMenuItem
-            // 
-            this.复制ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmicopyorderno,
-            this.tsmicopyaddress});
-            this.复制ToolStripMenuItem.Image = global::CatchOrderList.Properties.Resources.doc2;
-            this.复制ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.复制ToolStripMenuItem.Text = "复制";
-            this.复制ToolStripMenuItem.Visible = false;
-            // 
-            // tsmicopyorderno
-            // 
-            this.tsmicopyorderno.Image = global::CatchOrderList.Properties.Resources.square_blueS;
-            this.tsmicopyorderno.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmicopyorderno.Name = "tsmicopyorderno";
-            this.tsmicopyorderno.Size = new System.Drawing.Size(100, 22);
-            this.tsmicopyorderno.Text = "单号";
-            this.tsmicopyorderno.Click += new System.EventHandler(this.tsmicopyorderno_Click);
-            // 
-            // tsmicopyaddress
-            // 
-            this.tsmicopyaddress.Image = global::CatchOrderList.Properties.Resources.square_blueS;
-            this.tsmicopyaddress.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmicopyaddress.Name = "tsmicopyaddress";
-            this.tsmicopyaddress.Size = new System.Drawing.Size(100, 22);
-            this.tsmicopyaddress.Text = "地址";
-            this.tsmicopyaddress.Click += new System.EventHandler(this.tsmicopyaddress_Click);
-            // 
-            // tsmiMSG
-            // 
-            this.tsmiMSG.Image = global::CatchOrderList.Properties.Resources.comment;
-            this.tsmiMSG.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiMSG.Name = "tsmiMSG";
-            this.tsmiMSG.Size = new System.Drawing.Size(124, 22);
-            this.tsmiMSG.Text = "留言信息";
-            this.tsmiMSG.Click += new System.EventHandler(this.tsmiMSG_Click);
-            // 
-            // tsmiopenimage
-            // 
-            this.tsmiopenimage.Image = global::CatchOrderList.Properties.Resources.folderopen;
-            this.tsmiopenimage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsmiopenimage.Name = "tsmiopenimage";
-            this.tsmiopenimage.Size = new System.Drawing.Size(124, 22);
-            this.tsmiopenimage.Text = "单号图片";
-            this.tsmiopenimage.Click += new System.EventHandler(this.tsmiopenimage_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.lblTip);
-            this.panel4.Controls.Add(this.pbTotal);
-            this.panel4.Controls.Add(this.anpageinfo);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 481);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(969, 30);
-            this.panel4.TabIndex = 0;
-            // 
-            // lblTip
-            // 
-            this.lblTip.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTip.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTip.ForeColor = System.Drawing.Color.Red;
-            this.lblTip.Location = new System.Drawing.Point(159, 4);
-            this.lblTip.Name = "lblTip";
-            this.lblTip.Size = new System.Drawing.Size(100, 23);
-            this.lblTip.TabIndex = 3;
-            this.lblTip.Text = "0/0";
-            this.lblTip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pbTotal
-            // 
-            this.pbTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbTotal.Location = new System.Drawing.Point(0, 0);
-            this.pbTotal.Name = "pbTotal";
-            this.pbTotal.Size = new System.Drawing.Size(406, 30);
-            this.pbTotal.TabIndex = 2;
-            // 
-            // anpageinfo
-            // 
-            this.anpageinfo.AutoSize = true;
-            this.anpageinfo.BackColor = System.Drawing.SystemColors.Control;
-            this.anpageinfo.BtnTextNext = "下页";
-            this.anpageinfo.BtnTextPrevious = "上页";
-            this.anpageinfo.Dock = System.Windows.Forms.DockStyle.Right;
-            this.anpageinfo.Location = new System.Drawing.Point(406, 0);
-            this.anpageinfo.Margin = new System.Windows.Forms.Padding(6);
-            this.anpageinfo.Name = "anpageinfo";
-            this.anpageinfo.PageSize = 300;
-            this.anpageinfo.RecordCount = 0;
-            this.anpageinfo.Size = new System.Drawing.Size(563, 30);
-            this.anpageinfo.TabIndex = 2;
-            this.anpageinfo.PageIndexChanged += new Tony.Controls.Winform.WinFormPager.EventHandler(this.anpageinfo_PageIndexChanged);
-            // 
             // Column4
             // 
             this.Column4.HeaderText = "ID";
@@ -902,6 +751,157 @@ namespace CatchOrderList
             this.Column34.HeaderText = "分公司编号";
             this.Column34.Name = "Column34";
             this.Column34.ReadOnly = true;
+            // 
+            // cmsShowInfo
+            // 
+            this.cmsShowInfo.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.cmsShowInfo.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiUpdate,
+            this.tsmiUpdateDate,
+            this.tsmiDel,
+            this.ddToolStripMenuItem,
+            this.tsmiAddRemark,
+            this.复制ToolStripMenuItem,
+            this.tsmiMSG,
+            this.tsmiopenimage});
+            this.cmsShowInfo.Name = "contextMenuStrip1";
+            this.cmsShowInfo.Size = new System.Drawing.Size(125, 164);
+            // 
+            // tsmiUpdate
+            // 
+            this.tsmiUpdate.Image = global::CatchOrderList.Properties.Resources.pf;
+            this.tsmiUpdate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiUpdate.Name = "tsmiUpdate";
+            this.tsmiUpdate.Size = new System.Drawing.Size(124, 22);
+            this.tsmiUpdate.Text = "修改客户";
+            this.tsmiUpdate.Click += new System.EventHandler(this.tsmiUpdate_Click);
+            // 
+            // tsmiUpdateDate
+            // 
+            this.tsmiUpdateDate.Image = global::CatchOrderList.Properties.Resources.design;
+            this.tsmiUpdateDate.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiUpdateDate.Name = "tsmiUpdateDate";
+            this.tsmiUpdateDate.Size = new System.Drawing.Size(124, 22);
+            this.tsmiUpdateDate.Text = "修改日期";
+            this.tsmiUpdateDate.Click += new System.EventHandler(this.tsmiUpdateDate_Click);
+            // 
+            // tsmiDel
+            // 
+            this.tsmiDel.Image = global::CatchOrderList.Properties.Resources.wrong;
+            this.tsmiDel.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiDel.Name = "tsmiDel";
+            this.tsmiDel.Size = new System.Drawing.Size(124, 22);
+            this.tsmiDel.Text = "删除单号";
+            this.tsmiDel.Click += new System.EventHandler(this.tsmiDel_Click);
+            // 
+            // ddToolStripMenuItem
+            // 
+            this.ddToolStripMenuItem.Name = "ddToolStripMenuItem";
+            this.ddToolStripMenuItem.Size = new System.Drawing.Size(121, 6);
+            // 
+            // tsmiAddRemark
+            // 
+            this.tsmiAddRemark.Image = global::CatchOrderList.Properties.Resources.columns;
+            this.tsmiAddRemark.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiAddRemark.Name = "tsmiAddRemark";
+            this.tsmiAddRemark.Size = new System.Drawing.Size(124, 22);
+            this.tsmiAddRemark.Text = "添加备注";
+            this.tsmiAddRemark.Click += new System.EventHandler(this.tsmiAddRemark_Click);
+            // 
+            // 复制ToolStripMenuItem
+            // 
+            this.复制ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmicopyorderno,
+            this.tsmicopyaddress});
+            this.复制ToolStripMenuItem.Image = global::CatchOrderList.Properties.Resources.doc2;
+            this.复制ToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.复制ToolStripMenuItem.Text = "复制";
+            this.复制ToolStripMenuItem.Visible = false;
+            // 
+            // tsmicopyorderno
+            // 
+            this.tsmicopyorderno.Image = global::CatchOrderList.Properties.Resources.square_blueS;
+            this.tsmicopyorderno.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmicopyorderno.Name = "tsmicopyorderno";
+            this.tsmicopyorderno.Size = new System.Drawing.Size(100, 22);
+            this.tsmicopyorderno.Text = "单号";
+            this.tsmicopyorderno.Click += new System.EventHandler(this.tsmicopyorderno_Click);
+            // 
+            // tsmicopyaddress
+            // 
+            this.tsmicopyaddress.Image = global::CatchOrderList.Properties.Resources.square_blueS;
+            this.tsmicopyaddress.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmicopyaddress.Name = "tsmicopyaddress";
+            this.tsmicopyaddress.Size = new System.Drawing.Size(100, 22);
+            this.tsmicopyaddress.Text = "地址";
+            this.tsmicopyaddress.Click += new System.EventHandler(this.tsmicopyaddress_Click);
+            // 
+            // tsmiMSG
+            // 
+            this.tsmiMSG.Image = global::CatchOrderList.Properties.Resources.comment;
+            this.tsmiMSG.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiMSG.Name = "tsmiMSG";
+            this.tsmiMSG.Size = new System.Drawing.Size(124, 22);
+            this.tsmiMSG.Text = "留言信息";
+            this.tsmiMSG.Click += new System.EventHandler(this.tsmiMSG_Click);
+            // 
+            // tsmiopenimage
+            // 
+            this.tsmiopenimage.Image = global::CatchOrderList.Properties.Resources.folderopen;
+            this.tsmiopenimage.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsmiopenimage.Name = "tsmiopenimage";
+            this.tsmiopenimage.Size = new System.Drawing.Size(124, 22);
+            this.tsmiopenimage.Text = "单号图片";
+            this.tsmiopenimage.Click += new System.EventHandler(this.tsmiopenimage_Click);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.lblTip);
+            this.panel4.Controls.Add(this.pbTotal);
+            this.panel4.Controls.Add(this.anpageinfo);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel4.Location = new System.Drawing.Point(0, 481);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(969, 30);
+            this.panel4.TabIndex = 0;
+            // 
+            // lblTip
+            // 
+            this.lblTip.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTip.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTip.ForeColor = System.Drawing.Color.Red;
+            this.lblTip.Location = new System.Drawing.Point(159, 4);
+            this.lblTip.Name = "lblTip";
+            this.lblTip.Size = new System.Drawing.Size(100, 23);
+            this.lblTip.TabIndex = 3;
+            this.lblTip.Text = "0/0";
+            this.lblTip.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pbTotal
+            // 
+            this.pbTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbTotal.Location = new System.Drawing.Point(0, 0);
+            this.pbTotal.Name = "pbTotal";
+            this.pbTotal.Size = new System.Drawing.Size(406, 30);
+            this.pbTotal.TabIndex = 2;
+            // 
+            // anpageinfo
+            // 
+            this.anpageinfo.AutoSize = true;
+            this.anpageinfo.BackColor = System.Drawing.SystemColors.Control;
+            this.anpageinfo.BtnTextNext = "下页";
+            this.anpageinfo.BtnTextPrevious = "上页";
+            this.anpageinfo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.anpageinfo.Location = new System.Drawing.Point(406, 0);
+            this.anpageinfo.Margin = new System.Windows.Forms.Padding(6);
+            this.anpageinfo.Name = "anpageinfo";
+            this.anpageinfo.PageSize = 300;
+            this.anpageinfo.RecordCount = 0;
+            this.anpageinfo.Size = new System.Drawing.Size(563, 30);
+            this.anpageinfo.TabIndex = 2;
+            this.anpageinfo.PageIndexChanged += new Tony.Controls.Winform.WinFormPager.EventHandler(this.anpageinfo_PageIndexChanged);
             // 
             // OrderManagerForm
             // 
