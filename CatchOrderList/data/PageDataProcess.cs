@@ -584,7 +584,7 @@ namespace CatchOrderList.data
                 {
                     string[] rowDatas = userInfo.Split(';');
                     string[] userDatas = rowDatas[rowDatas.Length - 2].Split(',');//取最后一条数据为数据来源
-
+                    if(userDatas.Length>14)
                     nowOrder.Paream15 = userDatas[14];//订单来源
                 }
 

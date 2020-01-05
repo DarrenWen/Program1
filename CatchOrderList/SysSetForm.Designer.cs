@@ -425,7 +425,7 @@
             // 
             this.npage.Location = new System.Drawing.Point(87, 9);
             this.npage.Maximum = new decimal(new int[] {
-            5000,
+            500000,
             0,
             0,
             0});
@@ -437,7 +437,7 @@
             this.npage.Name = "npage";
             this.npage.Size = new System.Drawing.Size(75, 21);
             this.npage.TabIndex = 3;
-            this.toolTip1.SetToolTip(this.npage, "取值范围10~5000");
+            this.toolTip1.SetToolTip(this.npage, "取值范围10~500000");
             this.npage.Value = new decimal(new int[] {
             300,
             0,
